@@ -7,6 +7,10 @@ rooms = [
     {'id':3, 'name':'content'}
 ]
 
+def loginPage(request):
+    context={}
+    return render(request, 'base/login.html', context)
+
 def home(request):
     context = {'rooms' : rooms}
     return render(request, 'base/home.html', context)
