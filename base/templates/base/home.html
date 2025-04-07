@@ -3,17 +3,10 @@
 {% block content %}
 
 <h1>Home Template</h1>
-
-
-<div>
-    <div>
-        {% for room in rooms %}
-            <div>
-                <h5>{{room.id}} -- <a href="{/room/{{room.id}}}">{{room.name}}</a></h5>
-            </div>
-
-        {% endfor %}
-    </div>
+<div class="home-container">
+    <h1>Career Quest</h1>
+    <p>There are tons of different careers and jobs in the world; let's see which ones fit you!</p>
+    <a href="{% url 'quiz' %}" class="quiz-button">Quiz</a>
 </div>
 
 {% endblock content %}

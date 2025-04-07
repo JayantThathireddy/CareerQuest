@@ -1,32 +1,22 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 # Create your views here.
 
-rooms = [
-    {'id':1, 'name':'content'},
-    {'id':2, 'name':'content'},
-    {'id':3, 'name':'content'}
-]
-
-def loginPage(request):
-    context={}
-    return render(request, 'base/login.html', context)
-
 def home(request):
-    context = {'rooms' : rooms}
-    return render(request, 'base/home.html', context)
+    return render(request, 'base/home.html')
 
-def quiz(request, pk):
-    room = None
-    for i in rooms:
-        if i['id'] == int(pk):
-            room = i
-    context = {'room': room}
-    return render(request, 'base/quiz.html', context)
+def quiz(request):
+    return render(request, 'base/quiz.html')
 
-def about(request, pk):
-    room = None
-    for i in rooms:
-        if i['id'] == int(pk):
-            room = i
-    context = {'room': room}
-    return render(request, 'base/about.html', context)
+def about(request):
+    return render(request, 'base/about.html')
+
+def login(request):
+    return render(request, 'base/login.html')
+
+def quiz_submit(request):
+    if request.method == 'POST':
+        return HttpResponseRedirect(reverse('quiz_results')) 
+    else:
+        
+        return HttpResponseRedirect(reverse('quiz'))
