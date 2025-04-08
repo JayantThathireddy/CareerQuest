@@ -1,29 +1,32 @@
 {% extends 'main.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/stylelogin.css' %}">
+{% endblock %}
 
 {% block content %}
+<div class="login-container">
+    <h2>Login</h2>
 
-<h2>Login</h2>
-
-<div>
     <form method="POST" action="">
         {% csrf_token %}
 
-        <div>
-            <form method="POST" action="">
-                {% csrf_token %}
-
-
-            <label> Username:</label>
-            <input type="text" value="username" placeholder="Enter username" />
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email address">
         </div>
 
-        <div>
-            <label> Password: </label>
-            <input type="password" value="password" placeholder="Enter Password">
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter password">
         </div>
 
-        <input type="submit" value="Login"></input>
+        <input type="submit" value="Login" class="login-button">
     </form>
-</div>
 
-{% endblock content %}
+    <div class="login-links">
+        <p><a href="#">Forgot Password?</a></p>
+        <p><a href="#">Don’t have an Account?</a></p>
+    </div>
+</div>
+{% endblock %}
