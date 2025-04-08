@@ -1,22 +1,14 @@
 {%load static%}
-<div class="logo">
-    <a href="{% url 'home' %}">
-        <img src="{% static 'images/logo.png' %}" alt="CareerQuest Logo" style="height: 50px;"> 
-    </a>
-</div>
-
 <div class="navbar">
     <div class="logo">
-        
+        <a href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="CareerQuest Logo" style="height: 50px;">
+        </a>
     </div>
     <div class="nav-links">
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'quiz' %}">Quiz</a>
-         <a href="{% url 'about' %}">About</a>
-        <a href="{% url 'login' %}">Login</a>
-       
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'login' %}" class="login-button">Sign in</a>
     </div>
 </div>
-
-
-<hr>
