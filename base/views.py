@@ -14,6 +14,9 @@ def about(request):
 def login(request):
     return render(request, 'base/login.html')
 
+def description(request):
+    return render(request, 'base/description.html')
+
 def quiz_submit(request):
     if request.method == 'POST':
         return HttpResponseRedirect(reverse('quiz_results')) 

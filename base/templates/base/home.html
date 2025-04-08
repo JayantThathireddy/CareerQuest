@@ -2,10 +2,14 @@
 {% load static %}
 {% block content %}
 <div class="home-header">
-    <h1>Career Quest</h1>
-    <p>There are tons of different careers and jobs in the world; let's see which ones fit you!</p>
-    <a href="{% url 'quiz' %}" class="quiz-button">Quiz</a> 
-    <img src="{% static 'images/img1.png' %}" alt="Team" >
+    <div class="header-content">
+        <div class="header-text">
+            <h1>Career Quest</h1>
+            <p>There are tons of different careers and jobs in the world; let's see which ones fit you!</p>
+            <a href="{% url 'quiz' %}" class="quiz-button">Quiz</a>
+        </div>
+        <img src="{% static 'images/img1.png' %}" alt="Team">
+    </div>
 </div>
     
 <div class="why-career">
@@ -27,5 +31,20 @@
             <p>A chosen career should be sustainable whether it is through financial reasons, happiness, longevity and more! Without sustainability, there is risk of unemployment down the road or other problems which may lead to a hard time starting over.</p>
         </div>
     </div>
+</div>
+    <div class="action-steps">
+    <h2>So what should I do?</h2>
+    <div class="steps-content">
+        <div class="steps-text">
+            <p>Take the career assessment.</p>
+            <p>Evaluate and research the results.</p>
+            <p>Make the right choice for YOU!</p>
+            <p>When it's time, take everything into account and make a well-informed decision for YOU!</p>
+        </div>
+        <div class="steps-image">
+            <img src="{% static 'images/decision.png' %}" alt="Decision Making">
+        </div>
+    </div>
+    <a href="{% url 'description' %}" class="btn job-desc-btn">Job Descriptions</a>
 </div>
 {% endblock %}
