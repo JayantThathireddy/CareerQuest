@@ -1,12 +1,49 @@
 {% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/styleabout.css' %}">
+{% endblock %}
 
 {% block content %}
-
-<h2>About CareerQuest</h2>
-
-<div>
-    <p>CareerQuest was created to help recent graduates navigate the complex world of career planning.</p>
-    <p>Our mission is to provide insights and tools to connect your skills and interests with potential career paths.</p>
+<div class="about-header">
+    <div class="about-text">
+        <h1>About</h1>
+        <h3>Discover Your Path to Success</h3>
+        <p>
+            Choosing the right career can be overwhelming, but we’re here to make it easier. Our platform helps graduates explore career opportunities through personalized quizzes that match their skills, personality, and interests with the perfect job.
+        </p>
+        <p>
+            We provide in-depth career insights, including job descriptions, salary expectations, required qualifications, and growth potential. Whether you’re just starting your journey or looking for a new direction, our goal is to help you make informed decisions about your future.
+        </p>
+    </div>
+    <div class="about-image">
+        <img src="{% static 'images/About1.png' %}" alt="Career Journey Illustration">
+    </div>
 </div>
 
-{% endblock content %}
+<div class="contact-section">
+    <h2>Contact us</h2>
+    <form>
+        <div class="name-fields">
+            <div class="input-field">
+                <label for="first-name">First name</label>
+                <input type="text" id="first-name" placeholder="JOHNNY">
+            </div>
+            <div class="input-field">
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" placeholder="SMITH">
+            </div>
+        </div>
+        <div class="input-field">
+            <label for="email">Email address</label>
+            <input type="email" id="email" placeholder="email@JOHNNYfakedomain.net">
+        </div>
+        <div class="input-field">
+            <label for="message">Your message</label>
+            <textarea id="message" rows="4" placeholder="Enter your question or message"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+    </form>
+</div>
+{% endblock %}
