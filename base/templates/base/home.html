@@ -1,12 +1,31 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block content %}
-
-<h1>Home Template</h1>
-<div class="home-container">
+<div class="home-header">
     <h1>Career Quest</h1>
     <p>There are tons of different careers and jobs in the world; let's see which ones fit you!</p>
-    <a href="{% url 'quiz' %}" class="quiz-button">Quiz</a>
+    <a href="{% url 'quiz' %}" class="quiz-button">Quiz</a> 
+    <img src="{% static 'images/img1.png' %}" alt="Team" >
 </div>
-
-{% endblock content %}
+    
+<div class="why-career">
+    <h2>Why is finding the right career for YOU important?</h2>
+    <div class="career-reasons">
+        <div class="reason">
+            <img src="{% static 'images/happy.png' %}" alt="Happiness">
+            <h3>Happiness</h3>
+            <p>Choosing a career is a huge milestone as it is often done for a large portion of one's life. Ensuring that there is happiness when pursuing a career will set them for happiness in their life later down the road.</p>
+        </div>
+        <div class="reason">
+            <img src="{% static 'images/skill.png' %}" alt="Skill">
+            <h3>Skills</h3>
+            <p>Everybody has different and sometimes unique levels of strength or skills learned. These skills can help with recommending pathways which someone may find themselves incredibly successful in.</p>
+        </div>
+        <div class="reason">
+            <img src="{% static 'images/sustain.png' %}" alt="Sustainability">
+            <h3>Sustainability</h3>
+            <p>A chosen career should be sustainable whether it is through financial reasons, happiness, longevity and more! Without sustainability, there is risk of unemployment down the road or other problems which may lead to a hard time starting over.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
