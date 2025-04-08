@@ -6,10 +6,11 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),  
     path('login/', views.login, name='login'),
-    path('quiz/', views.quiz, name='quiz'),
+    path('quiz/', views.quiz, name='quiz'),  # Quiz intro page
+    path('quiz/questions/', views.quiz_questions, name='quiz_questions'),  # ✅ New quiz-taking page
     path('description/', views.description, name='description'),
     path('quiz/submit/', views.quiz_submit, name='quiz_submit'),
     
-    # 🔐 Login & Logout
+    # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),
 ]

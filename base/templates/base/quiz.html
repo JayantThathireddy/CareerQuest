@@ -1,28 +1,26 @@
 {% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/stylequiz.css' %}">
+{% endblock %}
 
 {% block content %}
+<div class="quiz-intro-container">
+    <h2>Discover Your Path</h2>
 
-<h2>Discover Your Path</h2>
+    <div class="quiz-box">
+        <h1>Take Our Quiz</h1>
+        <p>
+            Not sure which career path is right for you? Our quiz will help you uncover the jobs that match your interests, strengths, and personality.
+        </p>
+        <ul>
+            <li>✅ Quick – only 3–5 minutes</li>
+            <li>✅ Personalized results based on your answers</li>
+            <li>✅ No login or signup required</li>
+        </ul>
 
-<div class="quiz-container">
-    <h1>Take Our Quiz</h1>
-    <p>Answer these questions to find out which career best suits you!</p>
-
-    <form method="POST" action="{% url 'quiz_submit' %}">
-        {% csrf_token %}
-        {% for question in questions %}
-        <div class="question">
-            <p><strong>Question:</strong> {{ question.text }}</p>
-            {% for choice in question.choices.all %}
-            <label>
-                <input type="radio" name="question_{{ question.id }}" value="{{ choice.id }}">
-                {{ choice.choice_text }}
-            </label><br>
-            {% endfor %}
-        </div>
-        {% endfor %}
-        <button type="submit" class="submit-button">Submit Answers</button>
-    </form>
+        <a href="{% url 'quiz_questions' %}" class="start-quiz-button">Start Quiz</a>
+    </div>
 </div>
-
-{% endblock content %}
+{% endblock %}
