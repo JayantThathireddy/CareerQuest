@@ -13,13 +13,12 @@
     <title>CareerQuest</title>
 </head>
 
-    <body>
-        {% include 'navbar.html' %}
-
-        {% block content %}
-
-
-        {% endblock %}
+<div class="main-content">
+    {% include 'navbar.html' %}
+    {% block content %}
+    {% endblock %}
+</div>
+{% include 'footer.html' %}
 
     </body>
 </html>
