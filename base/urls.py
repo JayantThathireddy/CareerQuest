@@ -5,7 +5,9 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),  
-    path('login/', views.login, name='login'),
+    path('login/', views.loginPage, name='login'),
+    path('logout/', views.logoutUser, name='logout'),
+    path('register/', views.registerPage, name='register'),
     path('quiz/', views.quiz, name='quiz'),  # Quiz intro page
     path('quiz/questions/', views.quiz_questions, name='quiz_questions'),  # ✅ New quiz-taking page
     path('description/', views.description, name='description'),
