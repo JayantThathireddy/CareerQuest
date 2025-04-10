@@ -106,7 +106,18 @@ html, body {
     border-radius: 5px;
 }
 
-.nav-links .login-button:hover {
+.nav-links .logout-button{
+    padding: 10px 20px;
+    background-color: #000000; 
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.nav-links .login-button:hover .logout-button:hover{
+    background-color: #2c2a2a; 
+}
+
+.nav-links .logout-button:hover{
     background-color: #2c2a2a; 
 }
 
