@@ -84,7 +84,7 @@ html, body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: #fff; 
+    background-color: #f9f9f9; 
 }
 
 .logo img {
@@ -131,7 +131,7 @@ html, body {
 
 .job-desc-btn {
     padding: 10px 20px;
-    background-color: #070808;  /* Example blue color */
+    background-color: #070808;  
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -143,26 +143,26 @@ html, body {
 }
 
 .steps-image img {
-    width: 50%;  /* Adjust according to your design needs */
+    width: 50%;  
     height: auto;
 }
 
 .site-footer {
-    background-color: #2C3E50; /* Dark blue background */
-    color: #ffffff; /* White text color */
+    background-color: #2C3E50; 
+    color: #ffffff; 
     text-align: center;
     padding: 20px 0;
     font-size: 16px;
     line-height: 1.6;
-    border-top: 4px solid #3498DB; /* Light blue border top */
+    border-top: 4px solid #3498DB;
 }
 
 .footer-content {
-    max-width: 1200px; /* Maximum width of footer content */
+    max-width: 1200px; 
     margin: 0 auto;
     padding: 20px;
     display: flex;
-    justify-content: space-between; /* Space out the content */
+    justify-content: space-between; 
     align-items: center;
 }
 
@@ -177,23 +177,23 @@ html, body {
 }
 
 .footer-links a {
-    color: #ffffff; /* Links are white */
+    color: #ffffff; 
     text-decoration: none;
     margin: 0 15px;
     font-size: 16px;
 }
 
 .footer-links a:hover {
-    text-decoration: underline; /* Underline on hover for better interaction */
+    text-decoration: underline; 
 }
 
 .copy-right {
     font-size: 14px;
-    color: #95a5a6; /* Light gray for the copyright text */
+    color: #95a5a6; 
     margin-top: 10px;
 }
 
-/* Responsive layout for smaller screens */
+
 @media (max-width: 768px) {
     .footer-content {
         flex-direction: column;
@@ -206,7 +206,7 @@ html, body {
     }
 
     .footer-links a {
-        margin: 5px 0; /* Stack links vertically with space */
+        margin: 5px 0; 
     }
 }
 .site-footer {
