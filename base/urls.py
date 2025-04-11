@@ -12,6 +12,11 @@ urlpatterns = [
     path('quiz/questions/', views.quiz_questions, name='quiz_questions'),  # ✅ New quiz-taking page
     path('description/', views.description, name='description'),
     path('quiz/submit/', views.quiz_submit, name='quiz_submit'),
+    path('quiz/1/', views.quiz_page_1, name='quiz_page_1'),
+    path('quiz/2/', views.quiz_page_2, name='quiz_page_2'),
+    path('quiz/3/', views.quiz_page_3, name='quiz_page_3'),
+    path('quiz/4/', views.quiz_page_4, name='quiz_page_4'),
+    path('quiz/5/', views.quiz_page_5, name='quiz_page_5'),
     
     # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),

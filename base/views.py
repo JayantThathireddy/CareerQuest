@@ -68,6 +68,61 @@ def registerPage(request):
 
     return render(request, 'base/login_register.html', {'form': form})
 
+def quiz_page_1(request):
+    if request.method == "POST":
+        # Save q1 to q5 into session or database
+        request.session['quiz_q1'] = request.POST.get('q1')
+        request.session['quiz_q2'] = request.POST.get('q2')
+        request.session['quiz_q3'] = request.POST.get('q3')
+        request.session['quiz_q4'] = request.POST.get('q4')
+        request.session['quiz_q5'] = request.POST.get('q5')
+        return redirect('quiz_page_2')  # Redirect to the next page
+    return render(request, 'base/quiz_questions.html')
+
+def quiz_page_2(request):
+    if request.method == "POST":
+        # Save q6 to q10 into session or database
+        request.session['quiz_q6'] = request.POST.get('q6')
+        request.session['quiz_q7'] = request.POST.get('q7')
+        request.session['quiz_q8'] = request.POST.get('q8')
+        request.session['quiz_q9'] = request.POST.get('q9')
+        request.session['quiz_q10'] = request.POST.get('q10')
+        return redirect('quiz_page_3')  # Redirect to the next page
+    return render(request, 'base/quiz_questions2.html')
+
+def quiz_page_3(request):
+    if request.method == "POST":
+        # Save q11 to q15 into session or database
+        request.session['quiz_q11'] = request.POST.get('q11')
+        request.session['quiz_q12'] = request.POST.get('q12')
+        request.session['quiz_q13'] = request.POST.get('q13')
+        request.session['quiz_q14'] = request.POST.get('q14')
+        request.session['quiz_q15'] = request.POST.get('q15')
+        return redirect('quiz_page_4')  # Redirect to the next page
+    return render(request, 'base/quiz_questions3.html')
+
+def quiz_page_4(request):
+    if request.method == "POST":
+        # Save q16 to q20 into session or database
+        request.session['quiz_q16'] = request.POST.get('q16')
+        request.session['quiz_q17'] = request.POST.get('q17')
+        request.session['quiz_q18'] = request.POST.get('q18')
+        request.session['quiz_q19'] = request.POST.get('q19')
+        request.session['quiz_q20'] = request.POST.get('q20')
+        return redirect('quiz_page_5')  # Redirect to the next page
+    return render(request, 'base/quiz_questions4.html')
+
+def quiz_page_5(request):
+    if request.method == "POST":
+        # Save q21 to q25 into session or database
+        request.session['quiz_q21'] = request.POST.get('q21')
+        request.session['quiz_q22'] = request.POST.get('q22')
+        request.session['quiz_q23'] = request.POST.get('q23')
+        request.session['quiz_q24'] = request.POST.get('q24')
+        request.session['quiz_q25'] = request.POST.get('q25')
+        return redirect('description')  # Redirect to the job description page
+    return render(request, 'base/quiz_questions5.html')
+
 def description(request):
     return render(request, 'base/description.html')
 

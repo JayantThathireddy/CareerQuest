@@ -33,7 +33,7 @@ input[type="password"] {
 .login-button {
     width: 100%;
     padding: 10px;
-    background-color: #222;
+    background-color: #09334f;
     color: white;
     border: none;
     border-radius: 5px;
@@ -43,7 +43,7 @@ input[type="password"] {
 }
 
 .login-button:hover {
-    background-color: #000;
+    background-color: #333;
 }
 
 .login-links {

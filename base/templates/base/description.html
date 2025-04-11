@@ -1,8 +1,16 @@
 {% extends 'main.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style' %}"> {# Note: Change this once you have the styling done #}
 
 {% block content %}
 
-<h1> Job Descriptions</h2>
+<div class="job-descriptions">
+    <div class="job-text">
+        <h1>Job Descriptions</h1>
+        <h3>Here are some jobs we have found based on your quiz answers</h3>
+        <p>Sit back, relax, and watch the magic unfold!</p>
+    </div>
+</div>
 
 
 {% endblock %}

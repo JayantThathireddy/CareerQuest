@@ -7,44 +7,44 @@
 
 {% block content %}
 <div class="quiz-container">
-    <h2>Career Path Quiz (Page 1 of 5)</h2>
+    <h2>Career Path Quiz (Page 3 of 5)</h2>
     <p>Please rate how much you enjoy the following activities, from 1 (Dislike) to 5 (Love it).</p>
 
-    <form method="POST" action="{% url 'quiz_page_1' %}">
+    <form method="POST" action="{% url 'quiz_page_3' %}">
         {% csrf_token %}
 
         <div class="question">
-            <p><strong>1. Solving logical or technical problems</strong></p>
+            <p><strong>11. Analyzing social issues and advocating for change</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q1" value="{{ i }}"> {{ i }}</label>
+            <label><input type="radio" name="q11" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>2. Helping people with health or emotional needs</strong></p>
+            <p><strong>12. Working outdoors with nature or animals</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q2" value="{{ i }}"> {{ i }}</label>
+            <label><input type="radio" name="q12" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>3. Designing graphics, websites, or visual content</strong></p>
+            <p><strong>13. Selling products or persuading others</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q3" value="{{ i }}"> {{ i }}</label>
+            <label><input type="radio" name="q13" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>4. Working with numbers, data, or financial info</strong></p>
+            <p><strong>14. Working with young children or mentoring youth</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q4" value="{{ i }}"> {{ i }}</label>
+            <label><input type="radio" name="q14" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>5. Teaching or leading a group</strong></p>
+            <p><strong>15. Using technology to solve everyday problems</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q5" value="{{ i }}"> {{ i }}</label>
+            <label><input type="radio" name="q15" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 

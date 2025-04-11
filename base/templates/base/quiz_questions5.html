@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/stylequizquestions.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="quiz-container">
+    <h2>Career Path Quiz (Page 5 of 5)</h2>
+    <p>Please rate how much you enjoy the following activities, from 1 (Dislike) to 5 (Love it).</p>
+
+    <form method="POST" action="{% url 'quiz_page_5' %}">
+        {% csrf_token %}
+
+        <div class="question">
+            <p><strong>21. Speaking in front of an audience or public speaking</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q21" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>22. Learning foreign languages or exploring new cultures</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q22" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>23. Working in fast-paced, high-pressure environments</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q23" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>24. Helping others solve interpersonal or family issues</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q24" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>25. Working independently on long-term projects</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q25" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="submit-button">Submit Quiz</button>
+    </form>
+</div>
+{% endblock %}

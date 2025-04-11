@@ -116,7 +116,7 @@ p {
 }
 
 .quiz-button:hover, .job-desc-btn:hover {
-    background-color: #444;
+    background-color: #333;
     transform: translateY(-2px);
 }
 
