@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/stylequizquestions.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="quiz-container">
+    <h2>Career Path Quiz (Page 8 of 10)</h2>
+    <p>Please rate how much you enjoy the following activities, from 1 (Dislike) to 5 (Love it).</p>
+
+    <form method="POST" action="{% url 'quiz_page_8' %}">
+        {% csrf_token %}
+
+        <div class="question">
+            <p><strong>36. Having to earn a certificate or degree in order to be able to take the career.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q36" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>37. Working with machinery (such as fork-lifts, construction machines, etc.).</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q37" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>38. Working more for benefits as opposed to money.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q38" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>39. Being scheduled to be on call or overtime.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q39" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>40. Examining or explaining the history of artifacts, people, or events.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q40" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="submit-button">Next</button>
+    </form>
+</div>
+{% endblock %}

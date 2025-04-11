@@ -17,6 +17,11 @@ urlpatterns = [
     path('quiz/3/', views.quiz_page_3, name='quiz_page_3'),
     path('quiz/4/', views.quiz_page_4, name='quiz_page_4'),
     path('quiz/5/', views.quiz_page_5, name='quiz_page_5'),
+    path('quiz/6/', views.quiz_page_6, name='quiz_page_6'),
+    path('quiz/7/', views.quiz_page_7, name='quiz_page_7'),
+    path('quiz/8/', views.quiz_page_8, name='quiz_page_8'),
+    path('quiz/9/', views.quiz_page_9, name='quiz_page_9'),
+    path('quiz/10/', views.quiz_page_10, name='quiz_page_10'),
     
     # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),

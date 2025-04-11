@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/stylequizquestions.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="quiz-container">
+    <h2>Career Path Quiz (Page 6 of 10)</h2>
+    <p>Please rate how much you enjoy the following activities, from 1 (Dislike) to 5 (Love it).</p>
+
+    <form method="POST" action="{% url 'quiz_page_6' %}">
+        {% csrf_token %}
+
+        <div class="question">
+            <p><strong>26. Being placed in charge of a group of people.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q26" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>27. Preferring creative work as opposed to logical work.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q27" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>28. Keeping the work hours consistent week-by-week.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q28" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>29. Travelling for work.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q29" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <div class="question">
+            <p><strong>30. Having a strict schedule or rubric to follow as opposed to it being open for interpretation or creativity.</strong></p>
+            {% for i in "12345" %}
+            <label><input type="radio" name="q30" value="{{ i }}"> {{ i }}</label>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="submit-button">Next</button>
+    </form>
+</div>
+{% endblock %}
