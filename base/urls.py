@@ -1,6 +1,8 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -8,6 +10,7 @@ urlpatterns = [
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),
     path('register/', views.registerPage, name='register'),
+    path('profile-settings/', views.profile_settings, name='profile-settings'),
     path('quiz/', views.quiz, name='quiz'),  # Quiz intro page
     path('quiz/questions/', views.quiz_questions, name='quiz_questions'),  # ✅ New quiz-taking page
     path('description/', views.description, name='description'),
@@ -26,3 +29,6 @@ urlpatterns = [
     # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

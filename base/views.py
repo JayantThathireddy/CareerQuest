@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from .forms import ProfileForm
 
 # from .models import Question  # Uncomment this when your Question model is ready
 
@@ -68,6 +70,24 @@ def registerPage(request):
 
     return render(request, 'base/login_register.html', {'form': form})
 
+@login_required
+def profile_settings(request):
+    profile = request.user.profile
+
+    if request.method == 'POST':
+        if 'delete_account' in request.POST:
+            request.user.delete()
+            return redirect('home')
+
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile-settings')
+    else:
+        form = ProfileForm(instance=profile)
+
+    return render(request, 'base/profile-settings.html', {'form': form})
+
 def quiz_page_1(request):
     if request.method == "POST":
         # Save q1 to q5 into session or database
@@ -120,7 +140,7 @@ def quiz_page_5(request):
         request.session['quiz_q23'] = request.POST.get('q23')
         request.session['quiz_q24'] = request.POST.get('q24')
         request.session['quiz_q25'] = request.POST.get('q25')
-        return redirect('description')  # Redirect to the job description page
+        return redirect('quiz_page_6')  # Redirect to the job description page
     return render(request, 'base/quiz_questions5.html')
 
 def quiz_page_6(request):
@@ -131,7 +151,7 @@ def quiz_page_6(request):
         request.session['quiz_q28'] = request.POST.get('q28')
         request.session['quiz_q29'] = request.POST.get('q29')
         request.session['quiz_q30'] = request.POST.get('q30')
-        return redirect('description')  # Redirect to the job description page
+        return redirect('quiz_page_7')  # Redirect to the job description page
     return render(request, 'base/quiz_questions6.html')
 
 def quiz_page_7(request):
@@ -142,7 +162,7 @@ def quiz_page_7(request):
         request.session['quiz_q33'] = request.POST.get('q33')
         request.session['quiz_q34'] = request.POST.get('q34')
         request.session['quiz_q35'] = request.POST.get('q35')
-        return redirect('description')  # Redirect to the job description page
+        return redirect('quiz_page_8')  # Redirect to the job description page
     return render(request, 'base/quiz_questions7.html')
 
 def quiz_page_8(request):
@@ -153,7 +173,7 @@ def quiz_page_8(request):
         request.session['quiz_q38'] = request.POST.get('q38')
         request.session['quiz_q39'] = request.POST.get('q39')
         request.session['quiz_q40'] = request.POST.get('q40')
-        return redirect('description')  # Redirect to the job description page
+        return redirect('quiz_page_9')  # Redirect to the job description page
     return render(request, 'base/quiz_questions8.html')
 
 def quiz_page_9(request):
@@ -164,7 +184,7 @@ def quiz_page_9(request):
         request.session['quiz_q43'] = request.POST.get('q43')
         request.session['quiz_q44'] = request.POST.get('q44')
         request.session['quiz_q45'] = request.POST.get('q45')
-        return redirect('description')  # Redirect to the job description page
+        return redirect('quiz_page_10')  # Redirect to the job description page
     return render(request, 'base/quiz_questions9.html')
 
 def quiz_page_10(request):

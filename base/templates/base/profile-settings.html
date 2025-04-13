@@ -1,0 +1,124 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="profile-settings-container">
+    <h2>Profile Settings</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {% if request.user.profile.profile_picture and request.user.profile.profile_picture.name != 'profile_pics/emptyprofpic.png' %}
+                <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+            {% else %}
+                <img src="{% static 'profile_pics/emptyprofpic.png' %}" alt="Profile Picture" class="profile-picture">
+            {% endif %}<br>
+            {{ form.profile_picture }}
+        </div>
+        <label class="switch">
+            {{ form.dark_mode }}
+            <span class="slider round"></span>
+          </label>
+        <button type="submit" class="save-button">Save Changes</button>
+    </form>
+
+    <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+        {% csrf_token %}
+        <input type="hidden" name="delete_account" value="true">
+        <button type="submit" class="delete-button">Delete Account</button>
+    </form>
+</div>
+
+<!-- Profile Settings -->
+<style>
+    .profile-settings-container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 2rem;
+        background: rgba(255,255,255,0.95);
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .profile-settings-container h2 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .profile-picture {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: auto;
+        align-items: center;
+        display: block;
+        background-color: #e0e0e0;
+    }
+
+    .form-group {
+        margin: 1rem 0;
+    }
+
+    .save-button {
+        background: #4CAF50;
+        border: none;
+        padding: 0.5rem 1rem;
+        color: white;
+        cursor: pointer;
+        border-radius: 6px;
+    }
+
+    .delete-button {
+        background: #e74c3c;
+        border: none;
+        padding: 0.5rem 1rem;
+        color: white;
+        cursor: pointer;
+        border-radius: 6px;
+        margin-top: 1rem;
+    }
+
+    .save-button:hover {
+        background: #45a049;
+    }
+
+    .delete-button:hover {
+        background: #c0392b;
+    }
+</style>
+
+<!-- Switch styling -->
+<style>
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .switch input { display: none; }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px; width: 26px;
+      left: 4px; bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+</style>
+{% endblock %}

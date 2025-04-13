@@ -1,4 +1,6 @@
-{%load static%}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'styles/style.css' %}">
 <div class="navbar">
     <div class="logo">
         <a href="{% url 'home' %}">
@@ -6,16 +8,60 @@
         </a>
     </div>
 
-    
     <div class="nav-links">
-        <a href="{% url 'home' %}">Home</a>
-        <a href="{% url 'quiz' %}">Quiz</a>
-        <a href="{% url 'about' %}">About</a>
-        
+        <a class="nav-item" href="/">Home</a>
+        <a class="nav-item" href="/quiz">Quiz</a>
+        <a class="nav-item" href="/about">About</a>
+
         {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}" class="logout-button">Logout</a>
+        <div class="dropdown">
+            {% if request.user.profile.profile_picture and request.user.profile.profile_picture.name != 'profile_pics/emptyprofpic.png' %}
+                <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-pic">
+            {% else %}
+                <img src="{% static 'profile_pics/emptyprofpic.png' %}" alt="Profile Picture" class="profile-pic">
+            {% endif %}
+            <div class="dropdown-content">
+                <a href="#">Bookmarks</a>
+                <a href="/profile-settings">Profile Settings</a>
+                <a href="#" onclick="showLogoutPopup()">Logout</a>
+            </div>
+        </div>
         {% else %}
-        <a href="{% url 'login' %}" class="login-button">Log in</a>
+            <a href="{% url 'login' %}" class="login-button">Log in</a>
         {% endif %}
     </div>
 </div>
+
+{# For Logging Out #}
+<div id="logoutPopup" class="popup-overlay">
+    <div class="popup">
+        <p>Would you like to logout?</p>
+        <div class="popup-buttons">
+            <a href="{% url 'logout' %}" class="confirm-button">Yes, Logout</a>
+            <button onclick="hideLogoutPopup()" class="cancel-button">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleDropdown() {
+        let dropdown = document.getElementById('profileDropdown');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function showLogoutPopup() {
+        document.getElementById('logoutPopup').style.display = 'flex';
+        document.getElementById('profileDropdown').style.display = 'none';
+    }
+
+    function hideLogoutPopup() {
+        document.getElementById('logoutPopup').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        let dropdown = document.getElementById('profileDropdown');
+        if (!event.target.matches('.profile-pic')) {
+            dropdown.style.display = 'none';
+        }
+    }
+</script>
