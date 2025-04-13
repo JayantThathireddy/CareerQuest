@@ -4,7 +4,11 @@
 <div class="navbar">
     <div class="logo">
         <a href="{% url 'home' %}">
-            <img src="{% static 'images/logo.png' %}" alt="CareerQuest Logo" style="height: 50px;">
+            {% if dark_mode %}
+                <img src="{% static 'images/logo.png' %}" alt="CareerQuest Logo" style="height: 50px;">
+            {% else %}
+                <img src="{% static 'images/logo_dark_mode.png' %}" alt="CareerQuest Logo" style="height: 50px;">
+            {% endif %}
         </a>
     </div>
 

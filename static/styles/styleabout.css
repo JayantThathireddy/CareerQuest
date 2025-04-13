@@ -157,3 +157,54 @@ textarea:focus {
 .submit-btn:hover {
     background-color: #333;
 }
+
+/* Dark Mode Styling */
+.dark-mode .developers-section {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .developers-section h2 {
+    color: #e0e0e0;
+}
+
+.dark-mode .developer-card {
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.dark-mode .developer-card h4 {
+    color: #f0f0f0;
+}
+
+.dark-mode .developer-card p {
+    color: #cccccc;
+}
+
+.dark-mode .contact-section {
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+}
+
+.dark-mode .contact-section h2 {
+    color: #e0e0e0;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.dark-mode input:focus,
+.dark-mode textarea:focus {
+    border-color: #888;
+}
+
+.dark-mode .submit-btn {
+    background-color: #0d47a1;
+}
+
+.dark-mode .submit-btn:hover {
+    background-color: #1976d2;
+}

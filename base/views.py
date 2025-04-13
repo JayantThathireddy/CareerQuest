@@ -7,14 +7,24 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
+from django.http import JsonResponse
+
+def set_dark_mode(request):
+    if request.method == "POST":
+        dark_mode = request.POST.get('dark_mode', 'false') == 'true'
+        request.session['dark_mode'] = dark_mode
+        return JsonResponse({'status': 'success', 'dark_mode': dark_mode})
+    return JsonResponse({'status': 'error'}, status=400)
 
 # from .models import Question  # Uncomment this when your Question model is ready
 
 def home(request):
-    return render(request, 'base/home.html')
+    dark_mode = request.session.get('dark_mode', False)
+    return render(request, 'base/home.html', {'dark_mode': dark_mode})
 
 def quiz(request):
-    return render(request, 'base/quiz.html')  # Quiz intro page
+    dark_mode = request.session.get('dark_mode', False)
+    return render(request, 'base/quiz.html', {'dark_mode': dark_mode})  # Quiz intro page
 
 def quiz_questions(request):
     # Sample placeholder context; replace with real data if you have a model
@@ -23,7 +33,8 @@ def quiz_questions(request):
     return render(request, 'base/quiz_questions.html', {'questions': questions})
 
 def about(request):
-    return render(request, 'base/about.html')
+    dark_mode = request.session.get('dark_mode', False)
+    return render(request, 'base/about.html', {'dark_mode': dark_mode})
 
 def loginPage(request):
     page = 'login'

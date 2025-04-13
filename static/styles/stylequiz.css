@@ -41,10 +41,30 @@
     color: white;
     border-radius: 6px;
     text-decoration: none;
-    font-weight: bold;
     transition: background-color 0.2s ease-in-out;
 }
 
 .start-quiz-button:hover {
     background-color: #333;
+}
+
+/* Dark Mode Styling */
+.dark-mode .quiz-box {
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.dark-mode .quiz-box h1,
+.dark-mode .quiz-box p,
+.dark-mode .quiz-box li {
+    color: #e0e0e0;
+}
+
+.dark-mode .start-quiz-button {
+    background-color: #0d47a1;
+    color: white;
+}
+
+.dark-mode .start-quiz-button:hover {
+    background-color: #1976d2;
 }

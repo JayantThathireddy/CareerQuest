@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('set-dark-mode/', views.set_dark_mode, name='set-dark-mode'),
     path('about/', views.about, name='about'),  
     path('login/', views.loginPage, name='login'),
     path('logout/', views.logoutUser, name='logout'),

@@ -15,10 +15,13 @@
             {% endif %}<br>
             {{ form.profile_picture }}
         </div>
-        <label class="switch">
-            {{ form.dark_mode }}
-            <span class="slider round"></span>
-          </label>
+        <div class="form-group">
+            <label for="id_dark_mode" class="dark-mode-label">Dark Mode</label>
+            <label class="switch">
+                {{ form.dark_mode }}
+                <span class="slider round"></span>
+            </label>
+        </div>
         <button type="submit" class="save-button">Save Changes</button>
     </form>
 
@@ -89,6 +92,11 @@
 
 <!-- Switch styling -->
 <style>
+    .dark-mode-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    }
     .switch {
       position: relative;
       display: inline-block;

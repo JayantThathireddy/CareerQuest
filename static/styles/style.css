@@ -351,7 +351,7 @@ ul.messages {
     border-radius: 5px;
 }
 
-.confirm-button {
+.confirm-button, .dark-mode .confirm-button {
     background: #e74c3c;
     color: white;
     text-decoration: none;
@@ -361,7 +361,6 @@ ul.messages {
     background: #ccc;
 }
 
-
 /* Dark Mode */
 .dark-mode {
     background-color: #121212;
@@ -370,4 +369,113 @@ ul.messages {
   
 .dark-mode a {
 color: #90caf9;
+}
+
+.dark-mode .navbar {
+    background-color: #1f1f1f;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+}
+
+.dark-mode .reason {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .action-steps {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .site-footer {
+    background-color: #1f1f1f;
+    border-top-color: #2196F3;
+}
+
+.dark-mode .dropdown-content {
+    background-color: #1f1f1f;
+}
+
+.dark-mode .dropdown-content a {
+    color: #e0e0e0;
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #333333;
+}
+
+.dark-mode .messages {
+    background-color: #2e7d32;
+    color: #eaf8ea;
+    border-left-color: #4caf50;
+}
+
+.dark-mode .profile-settings-container {
+    background: rgba(30,30,30,0.95);
+}
+
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h3 {
+    color: #eeeeee;
+}
+
+.dark-mode p {
+    color: #cccccc;
+}
+
+.dark-mode .quiz-button, 
+.dark-mode .job-desc-btn {
+    background-color: #0d47a1;
+    color: white;
+}
+
+.dark-mode .quiz-button:hover,
+.dark-mode .job-desc-btn:hover {
+    background-color: #1976d2;
+}
+
+.dark-mode .home-header {
+    background: #1a1a1a; 
+    background-image: none;
+    background: linear-gradient(to right, #121212, #1a1a1a);
+}
+
+.dark-mode .home-header h1 {
+    color: #e0e0e0;
+}
+
+.dark-mode .home-header p {
+    color: #cccccc;
+}
+
+.dark-mode .why-career {
+    background-color: #1e1e1e;
+}
+
+.dark-mode .why-career h2,
+.dark-mode .why-career h3,
+.dark-mode .why-career p {
+    color: #e0e0e0;
+}
+
+.dark-mode .reason {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.dark-mode .action-steps {
+    background-color: #2a2a2a;
+}
+
+.dark-mode .action-steps h2,
+.dark-mode .action-steps p {
+    color: #e0e0e0;
+}
+
+.dark-mode .btn.job-desc-btn {
+    background-color: #0d47a1;
+    color: white;
+}
+
+.dark-mode .btn.job-desc-btn:hover {
+    background-color: #1976d2;
 }

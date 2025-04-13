@@ -49,3 +49,27 @@
 .submit-button:hover {
     background-color: #333;
 }
+
+/* Dark Mode Styling */
+.dark-mode .quiz-container {
+    background-color: #1f1f1f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.dark-mode .quiz-container h2,
+.dark-mode .quiz-container p,
+.dark-mode .quiz-container label {
+    color: #e0e0e0;
+}
+
+.dark-mode .question {
+    background-color: #2b2b2b;
+}
+
+.dark-mode .submit-button {
+    background-color: #0d47a1;
+}
+
+.dark-mode .submit-button:hover {
+    background-color: #1976d2;
+}
