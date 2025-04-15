@@ -1,6 +1,8 @@
 {% extends 'main.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'style' %}"> {# Note: Change this once you have the styling done #}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/styledescription.css' %}">
+{% endblock %}
 
 {% block content %}
 
@@ -12,5 +14,107 @@
     </div>
 </div>
 
+<div class="job-cards">
+        <div class="job-card">
+            <h2>Software Developer</h2>
+            <p>Design and build software applications for various platforms.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $98,000/year</li>
+                <li><strong>Education:</strong> Bachelor's in Computer Science</li>
+                <li><strong>Job Outlook:</strong> Growing rapidly (+22%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>Data Analyst</h2>
+            <p>Interpret complex data to help organizations make informed decisions.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $74,000/year</li>
+                <li><strong>Education:</strong> Bachelor’s in Statistics or related field</li>
+                <li><strong>Job Outlook:</strong> Growing steadily (+25%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>Digital Marketer</h2>
+            <p>Manage online marketing campaigns and boost brand presence.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $64,000/year</li>
+                <li><strong>Education:</strong> Bachelor’s in Marketing</li>
+                <li><strong>Job Outlook:</strong> High demand (+10%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>UX/UI Designer</h2>
+            <p>Create user-friendly digital interfaces with visual appeal.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $80,000/year</li>
+                <li><strong>Education:</strong> Bachelor’s in Design or HCI</li>
+                <li><strong>Job Outlook:</strong> Growing (+16%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>Mechanical Engineer</h2>
+            <p>Design and build mechanical systems and products.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $87,000/year</li>
+                <li><strong>Education:</strong> Bachelor’s in Mechanical Engineering</li>
+                <li><strong>Job Outlook:</strong> Stable (+7%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>Registered Nurse</h2>
+            <p>Provide medical care and support to patients in various settings.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $75,000/year</li>
+                <li><strong>Education:</strong> Associate/Bachelor’s in Nursing</li>
+                <li><strong>Job Outlook:</strong> Very high (+28%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>Entrepreneur</h2>
+            <p>Start and manage your own business venture.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> Varies widely ($0 - $200k+)</li>
+                <li><strong>Education:</strong> None required, business degree helpful</li>
+                <li><strong>Job Outlook:</strong> Depends on industry</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>Financial Analyst</h2>
+            <p>Advise businesses or individuals on investment decisions.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $85,000/year</li>
+                <li><strong>Education:</strong> Bachelor’s in Finance or Accounting</li>
+                <li><strong>Job Outlook:</strong> Growing steadily (+9%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>High School Teacher</h2>
+            <p>Educate students in a specific subject area at the high school level.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $55,000/year</li>
+                <li><strong>Education:</strong> Bachelor’s + Teaching Certification</li>
+                <li><strong>Job Outlook:</strong> Moderate (+5%)</li>
+            </ul>
+        </div>
+    
+        <div class="job-card">
+            <h2>Environmental Scientist</h2>
+            <p>Research and work on solutions for environmental problems.</p>
+            <ul>
+                <li><strong>Avg. Salary (NC):</strong> $68,000/year</li>
+                <li><strong>Education:</strong> Bachelor’s in Environmental Science</li>
+                <li><strong>Job Outlook:</strong> Strong (+8%)</li>
+            </ul>
+        </div>
+    </div>
+    </div>
 
 {% endblock %}
