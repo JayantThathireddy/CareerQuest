@@ -26,43 +26,54 @@ body {
     font-size: 16px;
 }
 
-.job-cards {
+/* FIELD CARDS CONTAINER */
+.field-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
     padding: 40px;
 }
 
-.job-card {
-    padding: 20px;
+/* INDIVIDUAL FIELD CARD */
+.field-card {
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
     border: 1px solid;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.job-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+/* TOGGLE BUTTON */
+.field-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
 }
 
-.job-card h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.job-card p {
+/* COLLAPSIBLE CONTENT */
+.field-content {
+    display: none;
+    padding: 0 20px 20px;
     font-size: 15px;
-    margin-bottom: 10px;
 }
 
-.job-card ul {
+.field-content.open {
+    display: block;
+}
+
+.field-content ul {
     list-style-type: none;
     padding-left: 0;
     margin-top: 10px;
 }
 
-.job-card ul li {
+.field-content ul li {
     margin-bottom: 6px;
     font-size: 14px;
 }
@@ -74,18 +85,16 @@ body.dark-theme {
     color: #fff;
 }
 
-body.dark-theme .job-card {
+body.dark-theme .field-card {
     background-color: #1e1e1e;
-    color: #fff;
     border-color: #444;
 }
 
-body.dark-theme .job-card h2 {
+body.dark-theme .field-toggle {
     color: #3aaaff;
 }
 
-body.dark-theme .job-card p,
-body.dark-theme .job-card ul li {
+body.dark-theme .field-content {
     color: #ccc;
 }
 
@@ -96,17 +105,15 @@ body.light-theme {
     color: #111;
 }
 
-body.light-theme .job-card {
+body.light-theme .field-card {
     background-color: #ffffff;
-    color: #111;
     border-color: #ccc;
 }
 
-body.light-theme .job-card h2 {
+body.light-theme .field-toggle {
     color: #007acc;
 }
 
-body.light-theme .job-card p,
-body.light-theme .job-card ul li {
+body.light-theme .field-content {
     color: #333;
 }

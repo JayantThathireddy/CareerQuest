@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load static %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'styles/styledescription.css' %}">
 {% endblock %}
@@ -8,113 +9,145 @@
 
 <div class="job-descriptions">
     <div class="job-text">
-        <h1>Job Descriptions</h1>
-        <h3>Here are some jobs we have found based on your quiz answers</h3>
-        <p>Sit back, relax, and watch the magic unfold!</p>
+        <h1>Career Fields</h1>
+        <h3>Explore the different industries based on your interests</h3>
+        <p>Click a field to see what jobs are inside!</p>
     </div>
 </div>
 
-<div class="job-cards">
-        <div class="job-card">
-            <h2>Software Developer</h2>
-            <p>Design and build software applications for various platforms.</p>
+<div class="field-cards">
+    {% comment %} Example Field Card {% endcomment %}
+    <div class="field-card">
+        <button class="field-toggle">Technology</button>
+        <div class="field-content">
+            <p>Careers focused on software, data, and digital design.</p>
             <ul>
-                <li><strong>Avg. Salary (NC):</strong> $98,000/year</li>
-                <li><strong>Education:</strong> Bachelor's in Computer Science</li>
-                <li><strong>Job Outlook:</strong> Growing rapidly (+22%)</li>
+                <li><strong>Software Developer:</strong> Build apps and websites.</li>
+                <li><strong>Data Analyst:</strong> Extract insights from data.</li>
+                <li><strong>UX/UI Designer:</strong> Create user-friendly interfaces.</li>
             </ul>
         </div>
-    
-        <div class="job-card">
-            <h2>Data Analyst</h2>
-            <p>Interpret complex data to help organizations make informed decisions.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $74,000/year</li>
-                <li><strong>Education:</strong> Bachelor’s in Statistics or related field</li>
-                <li><strong>Job Outlook:</strong> Growing steadily (+25%)</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>Digital Marketer</h2>
-            <p>Manage online marketing campaigns and boost brand presence.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $64,000/year</li>
-                <li><strong>Education:</strong> Bachelor’s in Marketing</li>
-                <li><strong>Job Outlook:</strong> High demand (+10%)</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>UX/UI Designer</h2>
-            <p>Create user-friendly digital interfaces with visual appeal.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $80,000/year</li>
-                <li><strong>Education:</strong> Bachelor’s in Design or HCI</li>
-                <li><strong>Job Outlook:</strong> Growing (+16%)</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>Mechanical Engineer</h2>
-            <p>Design and build mechanical systems and products.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $87,000/year</li>
-                <li><strong>Education:</strong> Bachelor’s in Mechanical Engineering</li>
-                <li><strong>Job Outlook:</strong> Stable (+7%)</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>Registered Nurse</h2>
-            <p>Provide medical care and support to patients in various settings.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $75,000/year</li>
-                <li><strong>Education:</strong> Associate/Bachelor’s in Nursing</li>
-                <li><strong>Job Outlook:</strong> Very high (+28%)</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>Entrepreneur</h2>
-            <p>Start and manage your own business venture.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> Varies widely ($0 - $200k+)</li>
-                <li><strong>Education:</strong> None required, business degree helpful</li>
-                <li><strong>Job Outlook:</strong> Depends on industry</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>Financial Analyst</h2>
-            <p>Advise businesses or individuals on investment decisions.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $85,000/year</li>
-                <li><strong>Education:</strong> Bachelor’s in Finance or Accounting</li>
-                <li><strong>Job Outlook:</strong> Growing steadily (+9%)</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>High School Teacher</h2>
-            <p>Educate students in a specific subject area at the high school level.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $55,000/year</li>
-                <li><strong>Education:</strong> Bachelor’s + Teaching Certification</li>
-                <li><strong>Job Outlook:</strong> Moderate (+5%)</li>
-            </ul>
-        </div>
-    
-        <div class="job-card">
-            <h2>Environmental Scientist</h2>
-            <p>Research and work on solutions for environmental problems.</p>
-            <ul>
-                <li><strong>Avg. Salary (NC):</strong> $68,000/year</li>
-                <li><strong>Education:</strong> Bachelor’s in Environmental Science</li>
-                <li><strong>Job Outlook:</strong> Strong (+8%)</li>
-            </ul>
-        </div>
-    </div>
     </div>
 
+    <div class="field-card">
+        <button class="field-toggle">Business</button>
+        <div class="field-content">
+            <p>Drive growth through finance, marketing, and leadership.</p>
+            <ul>
+                <li><strong>Marketing Specialist:</strong> Plan and run campaigns.</li>
+                <li><strong>Financial Analyst:</strong> Guide investments.</li>
+                <li><strong>Project Manager:</strong> Oversee business operations.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Education & Social Impact</button>
+        <div class="field-content">
+            <p>Help others learn, grow, and succeed in society.</p>
+            <ul>
+                <li><strong>High School Teacher:</strong> Educate students in core subjects.</li>
+                <li><strong>Social Worker:</strong> Support families and individuals.</li>
+                <li><strong>Career Counselor:</strong> Guide people through career choices.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Healthcare</button>
+        <div class="field-content">
+            <p>Work in medical fields to help and heal others.</p>
+            <ul>
+                <li><strong>Registered Nurse:</strong> Provide patient care and support.</li>
+                <li><strong>Physician Assistant:</strong> Diagnose and treat patients.</li>
+                <li><strong>Medical Lab Technician:</strong> Analyze lab samples.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Engineering</button>
+        <div class="field-content">
+            <p>Design, build, and improve structures and systems.</p>
+            <ul>
+                <li><strong>Mechanical Engineer:</strong> Build mechanical devices.</li>
+                <li><strong>Electrical Engineer:</strong> Design electronics and circuits.</li>
+                <li><strong>Civil Engineer:</strong> Plan roads and bridges.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Creative & Design</button>
+        <div class="field-content">
+            <p>Bring ideas to life through art, media, and visual design.</p>
+            <ul>
+                <li><strong>Graphic Designer:</strong> Create visuals for web/print.</li>
+                <li><strong>Animator:</strong> Make 2D/3D animations.</li>
+                <li><strong>Content Creator:</strong> Produce videos or posts.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Entertainment</button>
+        <div class="field-content">
+            <p>Entertain audiences through media, performance, or production.</p>
+            <ul>
+                <li><strong>Actor:</strong> Perform in shows or film.</li>
+                <li><strong>Sound Designer:</strong> Create audio experiences.</li>
+                <li><strong>Game Developer:</strong> Build interactive games.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Science & Environment</button>
+        <div class="field-content">
+            <p>Research and solve real-world scientific or environmental problems.</p>
+            <ul>
+                <li><strong>Environmental Scientist:</strong> Work on sustainability solutions.</li>
+                <li><strong>Lab Technician:</strong> Assist in experiments.</li>
+                <li><strong>GIS Analyst:</strong> Analyze geographic data.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Public Services</button>
+        <div class="field-content">
+            <p>Serve communities through safety, law, and government roles.</p>
+            <ul>
+                <li><strong>Police Officer:</strong> Enforce law and maintain order.</li>
+                <li><strong>Firefighter:</strong> Respond to emergencies.</li>
+                <li><strong>Paralegal:</strong> Support legal operations.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="field-card">
+        <button class="field-toggle">Trade</button>
+        <div class="field-content">
+            <p>Hands-on careers with strong demand and practical skills.</p>
+            <ul>
+                <li><strong>Electrician:</strong> Install and repair electrical systems.</li>
+                <li><strong>Plumber:</strong> Work on piping and water systems.</li>
+                <li><strong>HVAC Technician:</strong> Install and fix heating/cooling.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.field-toggle').forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.nextElementSibling.classList.toggle('open');
+            });
+        });
+    });
+</script>
 {% endblock %}
