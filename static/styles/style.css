@@ -479,3 +479,25 @@ color: #90caf9;
 .dark-mode .btn.job-desc-btn:hover {
     background-color: #1976d2;
 }
+
+.result-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.job-desc-btn {
+    background-color: #2C3E50;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    width: 180px; 
+    margin: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.job-desc-btn:hover {
+    background-color: #1a252f;
+}

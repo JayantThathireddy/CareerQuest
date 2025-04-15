@@ -206,7 +206,7 @@ def quiz_page_10(request):
         request.session['quiz_q48'] = request.POST.get('q48')
         request.session['quiz_q49'] = request.POST.get('q49')
         request.session['quiz_q50'] = request.POST.get('q50')
-        return redirect('description')  # Redirect to the job description page
+        return redirect('quiz_results')  # Redirect to the job description page
     return render(request, 'base/quiz_questions10.html')
 
 def description(request):
@@ -217,3 +217,6 @@ def quiz_submit(request):
         return HttpResponseRedirect(reverse('quiz_results')) 
     else:
         return HttpResponseRedirect(reverse('quiz'))
+
+def quiz_results(request):
+    return render(request, 'base/quiz_results.html')
