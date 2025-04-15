@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 {% load static %}
-<script src="{% static 'js/theme-toggle.js' %}"></script>
 <html lang="en">
     
-    <head>
-        <meta charset='UTF-8'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel="stylesheet" href="{% static 'styles/style.css' %}" >
-        
-        {% block extra_css %}{% endblock %}
-        
-        <title>CareerQuest</title>
-    </head>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    
+    {% block extra_css %}{% endblock %}
+    
+    <title>CareerQuest</title>
+</head>
 
-    <body class="{% if request.user.is_authenticated and request.user.profile.dark_mode %}dark-mode{% endif %}"></body>
-    <body>
-        <div class="main-content">
-            {% include 'navbar.html' %}
+<body class="{% if request.user.is_authenticated and request.user.profile.dark_mode %}dark-mode{% else %}light-theme{% endif %}">
+    <script src="{% static 'js/theme-toggle.js' %}"></script>
 
-            {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                    {% endfor %}
-            </ul>
-            
-            {% endif %}
-            {% block content %}
-            {% endblock %}
-        </div>
-        {% include 'footer.html' %}
+    <div class="main-content">
+        {% include 'navbar.html' %}
 
-    </body>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    {% include 'footer.html' %}
+    {% block extra_js %}{% endblock %}
+</body>
+
 </html>

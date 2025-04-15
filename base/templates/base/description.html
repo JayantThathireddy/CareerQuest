@@ -23,14 +23,26 @@
             <span class="arrow">▼</span>
         </button>
         <div class="field-content">
-            <p>Careers focused on software, data, and digital design.</p>
+            <p>
+                The technology field powers the digital world through software development, data analysis, and user-centered design. 
+                It’s fast-growing, high-paying, and perfect for creative problem-solvers who enjoy working with code, systems, and innovation.
+            </p>
+    
+            <h4>Top Careers in Technology:</h4>
             <ul>
-                <li><strong>Software Developer:</strong> Build apps and websites.</li>
-                <li><strong>Data Analyst:</strong> Extract insights from data.</li>
-                <li><strong>UX/UI Designer:</strong> Create user-friendly interfaces.</li>
+                <li>
+                    <strong>Software Developer:</strong> Design and build applications, tools, or websites using languages like Python, JavaScript, and Java.
+                </li>
+                <li>
+                    <strong>Data Analyst:</strong> Interpret business or scientific data to help companies make smart decisions using Excel, SQL, or Python.
+                </li>
+                <li>
+                    <strong>UX/UI Designer:</strong> Create clean and intuitive digital interfaces, focusing on both how they look (UI) and how users interact (UX).
+                </li>
             </ul>
         </div>
     </div>
+    
 
     <div class="field-card">
         <button class="field-toggle">
@@ -172,16 +184,21 @@
 
 {% block extra_js %}
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.field-toggle').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const content = btn.nextElementSibling;
-                content.classList.toggle('open');
+   document.addEventListener('DOMContentLoaded', function () {
+    console.log("JS loaded!");
 
-                const arrow = btn.querySelector('.arrow');
-                arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
-            });
+    document.querySelectorAll('.field-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            console.log("Button clicked:", btn);
+
+            const content = btn.nextElementSibling;
+            content.classList.toggle('open');
+
+            const arrow = btn.querySelector('.arrow');
+            arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
         });
     });
+});
+
 </script>
 {% endblock %}
