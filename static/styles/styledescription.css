@@ -106,3 +106,30 @@ body.light-theme .field-toggle:hover {
 body.light-theme .field-content {
     color: #333;
 }
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark-mode .field-card {
+    background-color: #2c2c2c;
+    border-color: #444;
+}
+
+body.dark-mode .field-toggle {
+    color: #4db8ff;
+    background-color: #2c2c2c;
+    border-bottom: 1px solid #444;
+}
+
+body.dark-mode .field-toggle:hover {
+    background-color: #3a3a3a;
+}
+
+body.dark-mode .field-content {
+    color: #ddd;
+}
+
+body.dark-mode .field-content ul li {
+    color: #ddd;
+}
