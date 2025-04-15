@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="job-descriptions">
     <div class="job-text">
         <h1>Career Fields</h1>
@@ -16,9 +15,13 @@
 </div>
 
 <div class="field-cards">
+
     {% comment %} Example Field Card {% endcomment %}
     <div class="field-card">
-        <button class="field-toggle">Technology</button>
+        <button class="field-toggle">
+            <span class="field-label">Technology</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Careers focused on software, data, and digital design.</p>
             <ul>
@@ -30,7 +33,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Business</button>
+        <button class="field-toggle">
+            <span class="field-label">Business</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Drive growth through finance, marketing, and leadership.</p>
             <ul>
@@ -42,7 +48,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Education & Social Impact</button>
+        <button class="field-toggle">
+            <span class="field-label">Education & Social Impact</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Help others learn, grow, and succeed in society.</p>
             <ul>
@@ -54,7 +63,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Healthcare</button>
+        <button class="field-toggle">
+            <span class="field-label">Healthcare</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Work in medical fields to help and heal others.</p>
             <ul>
@@ -66,7 +78,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Engineering</button>
+        <button class="field-toggle">
+            <span class="field-label">Engineering</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Design, build, and improve structures and systems.</p>
             <ul>
@@ -78,7 +93,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Creative & Design</button>
+        <button class="field-toggle">
+            <span class="field-label">Creative & Design</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Bring ideas to life through art, media, and visual design.</p>
             <ul>
@@ -90,7 +108,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Entertainment</button>
+        <button class="field-toggle">
+            <span class="field-label">Entertainment</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Entertain audiences through media, performance, or production.</p>
             <ul>
@@ -102,7 +123,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Science & Environment</button>
+        <button class="field-toggle">
+            <span class="field-label">Science & Environment</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Research and solve real-world scientific or environmental problems.</p>
             <ul>
@@ -114,7 +138,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Public Services</button>
+        <button class="field-toggle">
+            <span class="field-label">Public Services</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Serve communities through safety, law, and government roles.</p>
             <ul>
@@ -126,7 +153,10 @@
     </div>
 
     <div class="field-card">
-        <button class="field-toggle">Trade</button>
+        <button class="field-toggle">
+            <span class="field-label">Trade</span>
+            <span class="arrow">▼</span>
+        </button>
         <div class="field-content">
             <p>Hands-on careers with strong demand and practical skills.</p>
             <ul>
@@ -136,8 +166,8 @@
             </ul>
         </div>
     </div>
-</div>
 
+</div>
 {% endblock %}
 
 {% block extra_js %}
@@ -145,7 +175,11 @@
     document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.field-toggle').forEach(btn => {
             btn.addEventListener('click', () => {
-                btn.nextElementSibling.classList.toggle('open');
+                const content = btn.nextElementSibling;
+                content.classList.toggle('open');
+
+                const arrow = btn.querySelector('.arrow');
+                arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
             });
         });
     });
