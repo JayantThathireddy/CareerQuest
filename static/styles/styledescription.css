@@ -1,4 +1,4 @@
-/* ========== SHARED BASE STYLES ========== */
+/* Base & Layout */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -26,7 +26,6 @@ body {
     font-size: 16px;
 }
 
-/* FIELD CARDS CONTAINER */
 .field-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -34,7 +33,6 @@ body {
     padding: 40px;
 }
 
-/* INDIVIDUAL FIELD CARD */
 .field-card {
     border-radius: 10px;
     border: 1px solid;
@@ -42,21 +40,27 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* TOGGLE BUTTON */
 .field-toggle {
     width: 100%;
     background: none;
     border: none;
     padding: 20px;
     text-align: left;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
     outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     transition: background-color 0.3s ease;
 }
 
-/* COLLAPSIBLE CONTENT */
+.field-toggle .arrow {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
 .field-content {
     display: none;
     padding: 0 20px 20px;
@@ -78,28 +82,7 @@ body {
     font-size: 14px;
 }
 
-
-/* ========== DARK THEME ========== */
-body.dark-theme {
-    background-color: #111;
-    color: #fff;
-}
-
-body.dark-theme .field-card {
-    background-color: #1e1e1e;
-    border-color: #444;
-}
-
-body.dark-theme .field-toggle {
-    color: #3aaaff;
-}
-
-body.dark-theme .field-content {
-    color: #ccc;
-}
-
-
-/* ========== LIGHT THEME ========== */
+/* LIGHT THEME */
 body.light-theme {
     background-color: #f8f8f8;
     color: #111;
@@ -112,6 +95,12 @@ body.light-theme .field-card {
 
 body.light-theme .field-toggle {
     color: #007acc;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+body.light-theme .field-toggle:hover {
+    background-color: #f0f0f0;
 }
 
 body.light-theme .field-content {
