@@ -40,7 +40,7 @@ p {
     justify-content: space-between;
     align-items: center;
     padding: 16px 32px;
-    background-color: #ffffff;
+    background-color:#f9f9f9;
     box-shadow: 0 2px 5px rgba(0,0,0,0.08);
 }
 
@@ -93,7 +93,7 @@ p {
 .home-header {
     text-align: center;
     padding: 40px 20px;
-    background: linear-gradient(to right, #f9f9f9, #f1f1f1);
+    background: linear-gradient(to right, #ffffff, #ffffff);
 }
 
 .home-header h1 {
