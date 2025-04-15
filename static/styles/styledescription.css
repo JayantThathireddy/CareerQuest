@@ -1,0 +1,112 @@
+/* ========== SHARED BASE STYLES ========== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.job-descriptions {
+    text-align: center;
+    padding: 50px 20px 20px;
+}
+
+.job-text h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.job-text h3 {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.job-text p {
+    font-size: 16px;
+}
+
+.job-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+.job-card {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+    border: 1px solid;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.job-card h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.job-card p {
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.job-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.job-card ul li {
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+
+/* ========== DARK THEME ========== */
+body.dark-theme {
+    background-color: #111;
+    color: #fff;
+}
+
+body.dark-theme .job-card {
+    background-color: #1e1e1e;
+    color: #fff;
+    border-color: #444;
+}
+
+body.dark-theme .job-card h2 {
+    color: #3aaaff;
+}
+
+body.dark-theme .job-card p,
+body.dark-theme .job-card ul li {
+    color: #ccc;
+}
+
+
+/* ========== LIGHT THEME ========== */
+body.light-theme {
+    background-color: #f8f8f8;
+    color: #111;
+}
+
+body.light-theme .job-card {
+    background-color: #ffffff;
+    color: #111;
+    border-color: #ccc;
+}
+
+body.light-theme .job-card h2 {
+    color: #007acc;
+}
+
+body.light-theme .job-card p,
+body.light-theme .job-card ul li {
+    color: #333;
+}
