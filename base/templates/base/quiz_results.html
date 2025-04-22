@@ -1,8 +1,16 @@
 {% extends 'main.html' %}
 {% block content %}
-  <h2>Your Career Match</h2>
-  <p>Based on your answers, a great career path for you might be:</p>
-  <h3>{{recommendation}}</h3>
-  <a href="{% url 'quiz' %}" class="btn job-desc-btn">Take It Again</a>
-  <a href="{% url 'description' %}" class="btn job-desc-btn">Carrers/Job Description</a>
+<div class="quiz-result-box" style="max-width: 600px; margin: 0 auto; padding: 30px; text-align: center;">
+    <h2>Your Career Match</h2>
+    <p>Based on your answers, a great career path for you might be:</p>
+
+    {% for field, score in top_fields %}
+        <h3 style="color: #007acc; margin: 10px 0;">{{ field }}</h3>
+    {% endfor %}
+
+    <div style="margin-top: 25px;">
+        <a href="{% url 'quiz' %}" class="job-desc-btn" style="margin-right: 15px;">Take It Again</a>
+        <a href="{% url 'description' %}" class="job-desc-btn">Explore Careers</a>
+    </div>
+</div>
 {% endblock %}
