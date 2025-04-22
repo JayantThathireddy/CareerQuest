@@ -171,3 +171,64 @@ def privacy(request):
 
 def terms(request):
     return render(request, 'base/terms.html')
+
+def quiz_results(request):
+    field_scores = {
+        "Technology": 0,
+        "Business": 0,
+        "Education & Social Impact": 0,
+        "Healthcare": 0,
+        "Engineering": 0,
+        "Creative & Design": 0,
+        "Entertainment": 0,
+        "Science & Environment": 0,
+        "Public Services": 0,
+        "Trade": 0,
+    }
+
+    
+    question_map = {
+        1: ["Technology", "Engineering"],
+        2: ["Healthcare", "Education & Social Impact"],
+        3: ["Creative & Design", "Technology"],
+        4: ["Business", "Technology"],
+        5: ["Education & Social Impact", "Public Services"],
+        6: ["Creative & Design", "Entertainment"],
+        7: ["Engineering", "Trade"],
+        8: ["Business", "Public Services"],
+        9: ["Entertainment", "Public Services"],
+        10: ["Science & Environment", "Technology"],
+        11: ["Education & Social Impact", "Public Services"],
+        12: ["Science & Environment", "Trade"],
+        13: ["Business", "Public Services"],
+        14: ["Education & Social Impact", "Public Services"],
+        15: ["Technology", "Business"],
+        16: ["Science & Environment"],
+        17: ["Business", "Public Services"],
+        18: ["Creative & Design"],
+        19: ["Trade", "Engineering"],
+        20: ["Creative & Design", "Business"],
+        21: ["Entertainment", "Education & Social Impact"],
+        22: ["Public Services", "Education & Social Impact"],
+        23: ["Business", "Healthcare"],
+        24: ["Education & Social Impact", "Healthcare"],
+        25: ["Technology", "Creative & Design"]
+    }
+
+    
+    for q in range(1, 26):
+        answer = int(request.session.get(f'quiz_q{q}', 0))
+        related_fields = question_map.get(q, [])
+        for field in related_fields:
+            field_scores[field] += answer
+
+  
+    sorted_fields = sorted(field_scores.items(), key=lambda x: x[1], reverse=True)
+    top_fields = sorted_fields[:2]  
+
+    return render(request, 'base/quiz_results.html', {
+        "top_fields": top_fields,
+    })
+
+def career_description(request):
+    return render(request, 'base/career_description.html')
