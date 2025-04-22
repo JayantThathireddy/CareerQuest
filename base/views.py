@@ -226,3 +226,6 @@ def privacy(request):
 
 def terms(request):
     return render(request, 'base/terms.html')
+
+def career_description(request):
+    return render(request, 'base/career_description.html')

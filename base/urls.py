@@ -30,6 +30,8 @@ urlpatterns = [
     path('privacy/', views.privacy, name='privacy'),
     path('terms/', views.terms, name='terms'),
     
+    path('career_description/', views.career_description, name='career_details'),
+
     # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),
 ]

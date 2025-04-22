@@ -1,0 +1,667 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'styles/stylecareerdescription.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="career-detail-wrapper">
+    <h1>Explore Career Fields in Depth</h1>
+    <p>Here you’ll find more detailed information about each industry and the wide range of job opportunities it offers.</p>
+
+<!-- Technology -->
+<section id="technology" class="career-section">
+    <h2>Technology</h2>
+    <p>The tech industry includes roles in software development, cybersecurity, data analysis, and user experience design. It's fast-growing, high-paying, and perfect for creative problem-solvers who enjoy working with systems and innovation.</p>
+
+    <div class="job-detail">
+        <h3>Software Developer</h3>
+        <p>Designs and builds software applications, websites, or tools to solve problems or provide digital services.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $80,000 – $120,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Computer Science or related field</li>
+            <li><strong>Top Skills:</strong> Python, JavaScript, Git, Problem-solving, Agile development</li>
+            <li><strong>Work Environment:</strong> Office or remote, typically team-based</li>
+            <li><strong>Job Outlook:</strong> Growing much faster than average</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Cybersecurity Analyst</h3>
+        <p>Monitors and defends networks and systems against digital threats, ensuring data integrity and security.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $75,000 – $110,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Cybersecurity, Information Technology, or related field</li>
+            <li><strong>Top Skills:</strong> Network Security, Risk Assessment, Firewalls, Ethical Hacking, Attention to Detail</li>
+            <li><strong>Work Environment:</strong> Office or hybrid, often in security operations centers (SOCs)</li>
+            <li><strong>Job Outlook:</strong> High demand due to rising cyber threats</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Data Scientist</h3>
+        <p>Analyzes large datasets to extract meaningful insights and support data-driven decision-making in businesses.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $95,000 – $135,000</li>
+            <li><strong>Education:</strong> Bachelor’s or Master’s in Data Science, Statistics, or Computer Science</li>
+            <li><strong>Top Skills:</strong> Python, SQL, Machine Learning, Data Visualization, Critical Thinking</li>
+            <li><strong>Work Environment:</strong> Office or remote; often in tech, healthcare, or finance industries</li>
+            <li><strong>Job Outlook:</strong> Extremely fast-growing, especially in AI and analytics</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>UX/UI Designer</h3>
+        <p>Designs the look, feel, and usability of digital products, focusing on user experience and interface design.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $105,000</li>
+            <li><strong>Education:</strong> Degree in Graphic Design, HCI, or related field (or equivalent portfolio)</li>
+            <li><strong>Top Skills:</strong> Figma, Adobe XD, User Research, Wireframing, Visual Design</li>
+            <li><strong>Work Environment:</strong> Office or remote; often part of product teams</li>
+            <li><strong>Job Outlook:</strong> High demand due to focus on user-centered products</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>IT Support Specialist</h3>
+        <p>Provides technical assistance to users and organizations by troubleshooting hardware, software, and network issues.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $70,000</li>
+            <li><strong>Education:</strong> Associate’s or Bachelor's in IT or related field (certs like CompTIA A+ help)</li>
+            <li><strong>Top Skills:</strong> Troubleshooting, Customer Service, Networking, Windows/Linux systems</li>
+            <li><strong>Work Environment:</strong> Office, on-site, or remote support desks</li>
+            <li><strong>Job Outlook:</strong> Steady demand, especially in tech-reliant organizations</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Business -->
+<section id="business" class="career-section">
+    <h2>Business</h2>
+    <p>Business careers span across industries and involve leadership, financial planning, operations, and strategic decision-making. It’s ideal for individuals who enjoy problem-solving, communication, and making organizations run more efficiently.</p>
+
+    <div class="job-detail">
+        <h3>Marketing Manager</h3>
+        <p>Leads marketing strategies and campaigns to promote products, services, or brands and drive customer engagement.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $75,000 – $120,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Marketing, Business, or Communications</li>
+            <li><strong>Top Skills:</strong> Market Research, SEO, Branding, Analytics, Creativity</li>
+            <li><strong>Work Environment:</strong> Office or remote; often collaborates with creative and sales teams</li>
+            <li><strong>Job Outlook:</strong> Strong demand in both corporate and digital sectors</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Financial Analyst</h3>
+        <p>Analyzes financial data, prepares reports, and makes recommendations to help companies make smart investment decisions.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $100,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Finance, Economics, or Accounting</li>
+            <li><strong>Top Skills:</strong> Excel, Data Analysis, Forecasting, Financial Modeling</li>
+            <li><strong>Work Environment:</strong> Corporate offices, financial institutions, or remote roles</li>
+            <li><strong>Job Outlook:</strong> Stable growth with opportunities in nearly every industry</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>HR Specialist</h3>
+        <p>Manages hiring processes, employee relations, benefits, and ensures company policies are followed.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $55,000 – $80,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Human Resources, Business, or Psychology</li>
+            <li><strong>Top Skills:</strong> Communication, Conflict Resolution, HR Software, Organization</li>
+            <li><strong>Work Environment:</strong> Office-based with occasional remote or hybrid flexibility</li>
+            <li><strong>Job Outlook:</strong> Steady demand across all organizations with growing focus on company culture</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Business Analyst</h3>
+        <p>Acts as a bridge between business needs and technical solutions by analyzing data and processes to improve performance.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $65,000 – $95,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Business, IT, or a related field</li>
+            <li><strong>Top Skills:</strong> Data Analysis, Process Mapping, SQL, Communication, Critical Thinking</li>
+            <li><strong>Work Environment:</strong> Office or hybrid; works closely with product and engineering teams</li>
+            <li><strong>Job Outlook:</strong> Growing demand due to focus on operational efficiency</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Sales Manager</h3>
+        <p>Oversees sales teams, sets targets, and develops strategies to achieve revenue goals and grow client relationships.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $110,000 (plus commission/bonuses)</li>
+            <li><strong>Education:</strong> Bachelor’s in Business, Marketing, or a related field</li>
+            <li><strong>Top Skills:</strong> Communication, CRM Tools, Negotiation, Leadership, Goal Setting</li>
+            <li><strong>Work Environment:</strong> Office or field-based; may require travel for client meetings</li>
+            <li><strong>Job Outlook:</strong> Strong in industries like tech, healthcare, and services</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Education & Social Impact -->
+<section id="education" class="career-section">
+    <h2>Education & Social Impact</h2>
+    <p>Careers in education and social impact focus on teaching, mentoring, advocacy, and helping individuals and communities thrive. These roles are ideal for compassionate, patient, and purpose-driven people who want to make a difference.</p>
+
+    <div class="job-detail">
+        <h3>Teacher</h3>
+        <p>Educates students at elementary, middle, or high school levels, using lesson plans and assessments to guide learning and development.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $45,000 – $70,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Education and a teaching license or certification</li>
+            <li><strong>Top Skills:</strong> Classroom Management, Communication, Subject Expertise, Patience</li>
+            <li><strong>Work Environment:</strong> In-person classroom settings (with some online opportunities)</li>
+            <li><strong>Job Outlook:</strong> Steady demand, especially in STEM and special education</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Social Worker</h3>
+        <p>Supports individuals, children, and families facing challenges such as abuse, addiction, or poverty by connecting them with resources and services.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $75,000</li>
+            <li><strong>Education:</strong> Bachelor’s or Master’s in Social Work (MSW)</li>
+            <li><strong>Top Skills:</strong> Empathy, Crisis Intervention, Counseling, Case Management</li>
+            <li><strong>Work Environment:</strong> Offices, schools, hospitals, or field work</li>
+            <li><strong>Job Outlook:</strong> High demand in mental health, child welfare, and healthcare sectors</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Nonprofit Program Manager</h3>
+        <p>Leads programs within nonprofit organizations, including planning, budgeting, and coordinating with partners or donors.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $55,000 – $85,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Public Administration, Social Work, or related field</li>
+            <li><strong>Top Skills:</strong> Project Management, Budgeting, Communication, Fundraising</li>
+            <li><strong>Work Environment:</strong> Office-based or hybrid; occasional event or community outreach</li>
+            <li><strong>Job Outlook:</strong> Steady growth, especially in health, education, and global causes</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Career Counselor</h3>
+        <p>Helps individuals explore career options, set goals, and find education or job opportunities that align with their strengths and interests.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $75,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Psychology, Counseling, or Education (Master’s preferred)</li>
+            <li><strong>Top Skills:</strong> Listening, Advising, Career Assessment Tools, Empathy</li>
+            <li><strong>Work Environment:</strong> Schools, universities, or career centers</li>
+            <li><strong>Job Outlook:</strong> Growing demand in both education and workforce development</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>School Administrator</h3>
+        <p>Oversees school operations, curriculum standards, staff management, and student success initiatives.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $110,000</li>
+            <li><strong>Education:</strong> Master’s in Education Administration or related field</li>
+            <li><strong>Top Skills:</strong> Leadership, Strategic Planning, Conflict Resolution, Budgeting</li>
+            <li><strong>Work Environment:</strong> On-site in schools or district offices</li>
+            <li><strong>Job Outlook:</strong> High demand in K-12 systems and educational policy roles</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Healthcare -->
+<section id="healthcare" class="career-section">
+    <h2>Healthcare</h2>
+    <p>Healthcare careers are focused on improving patient health through direct care, diagnostics, rehabilitation, and administrative support. These roles are perfect for people who are compassionate, detail-oriented, and thrive in fast-paced environments.</p>
+
+    <div class="job-detail">
+        <h3>Registered Nurse</h3>
+        <p>Provides direct care to patients in hospitals, clinics, or other healthcare settings, including administering medications and monitoring health.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $65,000 – $100,000</li>
+            <li><strong>Education:</strong> Associate’s or Bachelor’s in Nursing (RN license required)</li>
+            <li><strong>Top Skills:</strong> Patient Care, Communication, Clinical Judgment, Time Management</li>
+            <li><strong>Work Environment:</strong> Hospitals, clinics, nursing homes, or home health</li>
+            <li><strong>Job Outlook:</strong> Extremely high demand nationwide</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Lab Technician</h3>
+        <p>Performs diagnostic tests and analyzes samples (like blood or tissue) to help doctors identify illnesses or medical conditions.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $45,000 – $65,000</li>
+            <li><strong>Education:</strong> Associate’s in Clinical Laboratory Science or Medical Technology</li>
+            <li><strong>Top Skills:</strong> Microscopy, Attention to Detail, Lab Equipment Use, Data Recording</li>
+            <li><strong>Work Environment:</strong> Medical labs, hospitals, diagnostic clinics</li>
+            <li><strong>Job Outlook:</strong> Growing due to increased testing demands</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Physical Therapist</h3>
+        <p>Helps patients recover mobility and reduce pain after injuries or surgeries through targeted exercise and therapy plans.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $75,000 – $110,000</li>
+            <li><strong>Education:</strong> Doctor of Physical Therapy (DPT) degree</li>
+            <li><strong>Top Skills:</strong> Anatomy, Rehabilitation Planning, Motivation, Empathy</li>
+            <li><strong>Work Environment:</strong> Clinics, hospitals, rehab centers, or patient homes</li>
+            <li><strong>Job Outlook:</strong> High demand with aging population</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Physician Assistant</h3>
+        <p>Works under a doctor’s supervision to examine patients, diagnose illnesses, and prescribe treatment plans.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $95,000 – $130,000</li>
+            <li><strong>Education:</strong> Master’s in Physician Assistant Studies and national certification (PA-C)</li>
+            <li><strong>Top Skills:</strong> Clinical Knowledge, Diagnostics, Teamwork, Communication</li>
+            <li><strong>Work Environment:</strong> Hospitals, clinics, surgical centers</li>
+            <li><strong>Job Outlook:</strong> Extremely fast-growing profession</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Medical Billing Specialist</h3>
+        <p>Handles the administrative side of healthcare by processing insurance claims, billing patients, and managing records.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $40,000 – $60,000</li>
+            <li><strong>Education:</strong> Certificate or Associate’s in Health Information or Billing/Coding</li>
+            <li><strong>Top Skills:</strong> Medical Coding, Insurance Knowledge, Accuracy, Data Entry</li>
+            <li><strong>Work Environment:</strong> Offices in clinics, hospitals, or remote settings</li>
+            <li><strong>Job Outlook:</strong> Strong demand with growth in healthcare administration</li>
+        </ul>
+    </div>
+</section>
+
+<!-- Engineering -->
+<section id="engineering" class="career-section">
+    <h2>Engineering</h2>
+    <p>Engineering applies science, technology, and mathematics to solve problems and build systems that improve the world. Engineers are innovators who work across industries to design, test, and improve products, infrastructure, and technology.</p>
+
+    <div class="job-detail">
+        <h3>Civil Engineer</h3>
+        <p>Plans, designs, and manages large infrastructure projects like bridges, roads, buildings, and water systems.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $110,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Civil Engineering and PE license (preferred)</li>
+            <li><strong>Top Skills:</strong> AutoCAD, Project Management, Structural Analysis, Math</li>
+            <li><strong>Work Environment:</strong> Offices, construction sites, government projects</li>
+            <li><strong>Job Outlook:</strong> Strong demand in public works and city development</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Mechanical Engineer</h3>
+        <p>Designs and develops mechanical systems such as engines, machines, robotics, or HVAC systems.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $105,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Mechanical Engineering</li>
+            <li><strong>Top Skills:</strong> CAD Software, Thermodynamics, Mechanics, Problem-Solving</li>
+            <li><strong>Work Environment:</strong> Manufacturing, aerospace, automotive, or R&D labs</li>
+            <li><strong>Job Outlook:</strong> Stable with innovation in renewable energy and automation</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Electrical Engineer</h3>
+        <p>Develops and tests electrical systems and devices, including power systems, circuits, and electronics.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $75,000 – $115,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Electrical Engineering</li>
+            <li><strong>Top Skills:</strong> Circuit Design, MATLAB, Electronics, Troubleshooting</li>
+            <li><strong>Work Environment:</strong> Offices, manufacturing plants, research labs</li>
+            <li><strong>Job Outlook:</strong> Good growth, especially in energy and telecommunications</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Industrial Engineer</h3>
+        <p>Optimizes systems, processes, and workflows to improve efficiency in manufacturing, logistics, or service industries.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $100,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Industrial Engineering or Systems Engineering</li>
+            <li><strong>Top Skills:</strong> Lean Manufacturing, Process Mapping, Operations Research</li>
+            <li><strong>Work Environment:</strong> Factories, warehouses, offices, or production facilities</li>
+            <li><strong>Job Outlook:</strong> Growing in logistics, healthcare, and production sectors</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Environmental Engineer</h3>
+        <p>Applies engineering principles to solve environmental problems related to pollution, waste, and sustainability.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $65,000 – $95,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Environmental or Civil Engineering</li>
+            <li><strong>Top Skills:</strong> Environmental Science, Regulatory Compliance, Water Treatment</li>
+            <li><strong>Work Environment:</strong> Government agencies, consulting firms, industrial sites</li>
+            <li><strong>Job Outlook:</strong> Increasing demand due to environmental regulations and green tech</li>
+        </ul>
+    </div>
+</section>
+
+<section id="creative" class="career-section">
+    <h2>Creative & Design</h2>
+    <p>Creative professionals blend art, design, and technology to communicate ideas, tell stories, and build visual experiences across digital and traditional media.</p>
+
+    <div class="job-detail">
+        <h3>Graphic Designer</h3>
+        <p>Creates visual assets like logos, brochures, social media posts, and web designs to support branding and marketing.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $45,000 – $70,000</li>
+            <li><strong>Education:</strong> Associate’s or Bachelor’s in Graphic Design or Visual Arts</li>
+            <li><strong>Top Skills:</strong> Adobe Creative Suite, Typography, Branding, Layout</li>
+            <li><strong>Work Environment:</strong> Marketing agencies, freelance, or in-house design teams</li>
+            <li><strong>Job Outlook:</strong> Steady demand, especially for digital content</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Animator</h3>
+        <p>Creates animated visuals for films, video games, commercials, or educational content using 2D or 3D techniques.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $85,000</li>
+            <li><strong>Education:</strong> Degree in Animation, Digital Media, or a related field</li>
+            <li><strong>Top Skills:</strong> Storyboarding, Maya/Blender, Timing, Motion Design</li>
+            <li><strong>Work Environment:</strong> Studios, remote freelance, or production teams</li>
+            <li><strong>Job Outlook:</strong> Growing in entertainment, games, and education</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>UX/UI Designer</h3>
+        <p>Designs digital interfaces to be both visually appealing and user-friendly, focusing on both look and usability.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $105,000</li>
+            <li><strong>Education:</strong> Degree in Design, HCI, or bootcamp certification</li>
+            <li><strong>Top Skills:</strong> Wireframing, Prototyping, Figma, User Research</li>
+            <li><strong>Work Environment:</strong> Tech companies, startups, design agencies</li>
+            <li><strong>Job Outlook:</strong> High demand in product-based industries</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Creative Director</h3>
+        <p>Oversees visual branding and creative vision for companies or campaigns across various media.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $90,000 – $140,000</li>
+            <li><strong>Education:</strong> Bachelor’s in Design, Marketing, or Communications</li>
+            <li><strong>Top Skills:</strong> Leadership, Concept Development, Branding, Art Direction</li>
+            <li><strong>Work Environment:</strong> Agencies, corporations, media firms</li>
+            <li><strong>Job Outlook:</strong> Competitive but strong in creative industries</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Illustrator</h3>
+        <p>Draws images for books, magazines, websites, packaging, and more, combining artistic skills with storytelling.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $40,000 – $70,000</li>
+            <li><strong>Education:</strong> Portfolio-based, often with an art or illustration degree</li>
+            <li><strong>Top Skills:</strong> Drawing, Digital Illustration, Adobe Illustrator, Visual Storytelling</li>
+            <li><strong>Work Environment:</strong> Freelance, publishing houses, agencies</li>
+            <li><strong>Job Outlook:</strong> Niche but steady, especially online content</li>
+        </ul>
+    </div>
+</section>
+
+<section id="entertainment" class="career-section">
+    <h2>Entertainment</h2>
+    <p>Entertainment professionals create performances, stories, and immersive media experiences that inform, engage, and inspire audiences worldwide.</p>
+
+    <div class="job-detail">
+        <h3>Actor</h3>
+        <p>Performs characters in film, television, stage productions, or voice-over projects to tell stories and evoke emotion.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> Highly variable ($30,000 – $100,000+)</li>
+            <li><strong>Education:</strong> Acting school, drama degree, or experience-based</li>
+            <li><strong>Top Skills:</strong> Memorization, Emotional Range, Improvisation, Public Speaking</li>
+            <li><strong>Work Environment:</strong> Theaters, film sets, or recording studios</li>
+            <li><strong>Job Outlook:</strong> Very competitive but opportunities in voice, streaming, and indie work</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Sound Designer</h3>
+        <p>Creates and manipulates sound effects, ambience, and audio elements for games, movies, and live events.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $80,000</li>
+            <li><strong>Education:</strong> Degree in Audio Engineering or Sound Design</li>
+            <li><strong>Top Skills:</strong> Pro Tools, Foley, Mixing, Sound Libraries</li>
+            <li><strong>Work Environment:</strong> Studios, post-production houses, freelance</li>
+            <li><strong>Job Outlook:</strong> Growing in digital media and gaming</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Game Developer</h3>
+        <p>Designs and programs interactive games for consoles, PC, or mobile platforms.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $70,000 – $110,000</li>
+            <li><strong>Education:</strong> Degree in Game Design, CS, or related field</li>
+            <li><strong>Top Skills:</strong> Unity/Unreal, C++, Gameplay Design, 3D Engines</li>
+            <li><strong>Work Environment:</strong> Game studios, indie teams, remote</li>
+            <li><strong>Job Outlook:</strong> Strong with indie and mobile game growth</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Film Editor</h3>
+        <p>Edits raw video footage into polished film or video content, shaping the narrative and flow of the final product.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $55,000 – $90,000</li>
+            <li><strong>Education:</strong> Degree in Film, Media Arts, or hands-on experience</li>
+            <li><strong>Top Skills:</strong> Adobe Premiere, Final Cut, Timing, Storytelling</li>
+            <li><strong>Work Environment:</strong> Post-production studios or remote setups</li>
+            <li><strong>Job Outlook:</strong> Growing with YouTube, streaming, and digital media</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Talent Agent</h3>
+        <p>Represents actors, musicians, and creatives by helping them book roles, negotiate contracts, and build their careers.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $100,000 (plus commissions)</li>
+            <li><strong>Education:</strong> Degree in Business, Marketing, or Communications</li>
+            <li><strong>Top Skills:</strong> Networking, Negotiation, Industry Knowledge, Communication</li>
+            <li><strong>Work Environment:</strong> Entertainment agencies, freelance representation</li>
+            <li><strong>Job Outlook:</strong> Stable but competitive — connections matter most</li>
+        </ul>
+    </div>
+</section>
+
+<section id="science" class="career-section">
+    <h2>Science & Environment</h2>
+    <p>Science and environmental careers are rooted in research, innovation, and preservation. These roles focus on solving global challenges, protecting ecosystems, and advancing scientific knowledge.</p>
+
+    <div class="job-detail">
+        <h3>Environmental Scientist</h3>
+        <p>Studies air, water, and soil quality to develop policies and solutions that protect the environment and human health.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $60,000 – $90,000</li>
+            <li><strong>Education:</strong> Bachelor’s or Master’s in Environmental Science or a related field</li>
+            <li><strong>Top Skills:</strong> Research, Field Work, Data Analysis, Environmental Policy</li>
+            <li><strong>Work Environment:</strong> Labs, government agencies, fieldwork in natural areas</li>
+            <li><strong>Job Outlook:</strong> High demand in sustainability and climate sectors</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Lab Technician</h3>
+        <p>Performs experiments, prepares samples, and supports scientific research in academic or private labs.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $40,000 – $60,000</li>
+            <li><strong>Education:</strong> Associate’s or Bachelor’s in Biology, Chemistry, or related field</li>
+            <li><strong>Top Skills:</strong> Lab Safety, Microscope Work, Sample Prep, Accuracy</li>
+            <li><strong>Work Environment:</strong> Academic labs, hospitals, pharma companies</li>
+            <li><strong>Job Outlook:</strong> Stable demand in science, healthcare, and biotech</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>GIS Analyst</h3>
+        <p>Uses geographic information systems to collect, visualize, and analyze spatial data for planning, research, or logistics.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $55,000 – $85,000</li>
+            <li><strong>Education:</strong> Degree in Geography, GIS, or Environmental Science</li>
+            <li><strong>Top Skills:</strong> ArcGIS, Mapping, Spatial Analysis, Remote Sensing</li>
+            <li><strong>Work Environment:</strong> Government, urban planning, or environmental firms</li>
+            <li><strong>Job Outlook:</strong> Growing demand in climate science, urban planning, and logistics</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Wildlife Biologist</h3>
+        <p>Studies animals and their ecosystems to inform conservation strategies and protect endangered species.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $80,000</li>
+            <li><strong>Education:</strong> Bachelor’s or Master’s in Biology, Ecology, or Zoology</li>
+            <li><strong>Top Skills:</strong> Field Research, Species Identification, Data Logging, Environmental Policy</li>
+            <li><strong>Work Environment:</strong> Outdoors, government agencies, conservation groups</li>
+            <li><strong>Job Outlook:</strong> Growing in wildlife preservation and habitat restoration</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Climate Policy Analyst</h3>
+        <p>Researches and develops strategies to combat climate change through environmental legislation and sustainability efforts.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $65,000 – $95,000</li>
+            <li><strong>Education:</strong> Degree in Environmental Policy, Political Science, or Sustainability</li>
+            <li><strong>Top Skills:</strong> Policy Writing, Research, Communication, Climate Economics</li>
+            <li><strong>Work Environment:</strong> NGOs, government, consulting firms</li>
+            <li><strong>Job Outlook:</strong> High demand as climate legislation expands</li>
+        </ul>
+    </div>
+</section>
+
+<section id="public" class="career-section">
+    <h2>Public Services</h2>
+    <p>Public service roles focus on protecting, organizing, and assisting communities. Whether in law enforcement, emergency response, or public policy, these jobs help society function safely and fairly.</p>
+
+    <div class="job-detail">
+        <h3>Police Officer</h3>
+        <p>Enforces laws, responds to emergencies, and works to maintain public safety and community trust.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $85,000</li>
+            <li><strong>Education:</strong> High school diploma + police academy training</li>
+            <li><strong>Top Skills:</strong> Law Knowledge, Crisis Management, Physical Fitness, Communication</li>
+            <li><strong>Work Environment:</strong> Field patrols, stations, and community settings</li>
+            <li><strong>Job Outlook:</strong> Stable demand with emphasis on community policing</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Firefighter</h3>
+        <p>Responds to fires and emergencies, rescues individuals, and promotes fire safety education in the community.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $45,000 – $80,000</li>
+            <li><strong>Education:</strong> High school diploma + firefighter academy + EMT certification</li>
+            <li><strong>Top Skills:</strong> Physical Strength, Teamwork, Emergency Response, Risk Assessment</li>
+            <li><strong>Work Environment:</strong> Fire stations, emergency scenes, public events</li>
+            <li><strong>Job Outlook:</strong> Strong demand in growing urban areas</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Paralegal</h3>
+        <p>Assists lawyers by organizing documents, conducting research, and drafting legal documents.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $75,000</li>
+            <li><strong>Education:</strong> Associate’s degree or Paralegal Certificate</li>
+            <li><strong>Top Skills:</strong> Legal Research, Writing, Organization, Client Communication</li>
+            <li><strong>Work Environment:</strong> Law firms, courts, government offices</li>
+            <li><strong>Job Outlook:</strong> Growing demand in legal and government sectors</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Emergency Dispatcher</h3>
+        <p>Receives 911 calls, dispatches emergency responders, and gives instructions during critical situations.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $40,000 – $60,000</li>
+            <li><strong>Education:</strong> High school diploma + on-the-job training</li>
+            <li><strong>Top Skills:</strong> Calm Under Pressure, Communication, Multitasking, Decision-Making</li>
+            <li><strong>Work Environment:</strong> 911 call centers and dispatch units</li>
+            <li><strong>Job Outlook:</strong> Reliable demand in cities and counties</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Public Health Official</h3>
+        <p>Monitors health trends, promotes wellness initiatives, and works on disease prevention in communities.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $55,000 – $90,000</li>
+            <li><strong>Education:</strong> Degree in Public Health, Epidemiology, or Healthcare Admin</li>
+            <li><strong>Top Skills:</strong> Data Analysis, Policy Planning, Community Engagement, Health Education</li>
+            <li><strong>Work Environment:</strong> Government agencies, hospitals, nonprofit orgs</li>
+            <li><strong>Job Outlook:</strong> Rapid growth post-pandemic and in underserved areas</li>
+        </ul>
+    </div>
+</section>
+
+<section id="trade" class="career-section">
+    <h2>Trade</h2>
+    <p>Trade careers are hands-on, skill-based roles that keep infrastructure, homes, and essential systems running. These jobs offer strong earning potential, job stability, and apprenticeship opportunities without requiring a 4-year degree.</p>
+
+    <div class="job-detail">
+        <h3>Electrician</h3>
+        <p>Installs, maintains, and repairs electrical wiring, systems, and fixtures in homes, commercial buildings, or factories.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $85,000</li>
+            <li><strong>Education:</strong> High school diploma + apprenticeship or trade school</li>
+            <li><strong>Top Skills:</strong> Wiring, Circuit Diagrams, Safety Protocols, Problem Solving</li>
+            <li><strong>Work Environment:</strong> Residential, commercial, or industrial job sites</li>
+            <li><strong>Job Outlook:</strong> High demand in construction and renewable energy</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Plumber</h3>
+        <p>Installs and repairs pipes, fixtures, and appliances for water distribution and drainage systems.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $50,000 – $80,000</li>
+            <li><strong>Education:</strong> Apprenticeship, trade school, or plumbing license</li>
+            <li><strong>Top Skills:</strong> Pipefitting, Leak Detection, Blueprints, Customer Service</li>
+            <li><strong>Work Environment:</strong> Homes, businesses, construction sites</li>
+            <li><strong>Job Outlook:</strong> Strong demand, especially in aging infrastructure areas</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>HVAC Technician</h3>
+        <p>Installs and repairs heating, ventilation, and air conditioning systems to ensure indoor air quality and climate control.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $48,000 – $75,000</li>
+            <li><strong>Education:</strong> HVAC certification or technical training</li>
+            <li><strong>Top Skills:</strong> Refrigeration, Diagnostics, Maintenance, Safety Compliance</li>
+            <li><strong>Work Environment:</strong> Homes, offices, mechanical rooms</li>
+            <li><strong>Job Outlook:</strong> Rapid growth due to climate systems and energy efficiency focus</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Welder</h3>
+        <p>Uses heat and tools to fuse metals for construction, manufacturing, or repair purposes.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $45,000 – $70,000</li>
+            <li><strong>Education:</strong> Welding certification or vocational school</li>
+            <li><strong>Top Skills:</strong> MIG/TIG Welding, Blueprints, Physical Stamina, Precision</li>
+            <li><strong>Work Environment:</strong> Factories, shipyards, construction sites</li>
+            <li><strong>Job Outlook:</strong> Strong demand in infrastructure, oil/gas, and fabrication</li>
+        </ul>
+    </div>
+
+    <div class="job-detail">
+        <h3>Automotive Technician</h3>
+        <p>Inspects, maintains, and repairs cars and trucks, ensuring vehicles are safe and functional.</p>
+        <ul>
+            <li><strong>Salary Range:</strong> $40,000 – $65,000</li>
+            <li><strong>Education:</strong> High school diploma + trade school or ASE certification</li>
+            <li><strong>Top Skills:</strong> Diagnostics, Engine Repair, Tools Handling, Customer Service</li>
+            <li><strong>Work Environment:</strong> Auto repair shops, dealerships, garages</li>
+            <li><strong>Job Outlook:</strong> Steady with rise in hybrid/electric vehicle services</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
