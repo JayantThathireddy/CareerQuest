@@ -14,41 +14,43 @@
         {% csrf_token %}
 
         <div class="question">
-            <p><strong>21. Speaking in front of an audience or public speaking</strong></p>
+            <p><strong>21. I am interested in designing and building real-world infrastructure.</strong></p>
             {% for i in "12345" %}
             <label><input type="radio" name="q21" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>22. Learning foreign languages or exploring new cultures</strong></p>
+            <p><strong>22. I enjoy creating digital media like videos or animations.</strong></p>
             {% for i in "12345" %}
             <label><input type="radio" name="q22" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>23. Working in fast-paced, high-pressure environments</strong></p>
+            <p><strong>23. I want a career that lets me work independently on long-term goals.</strong></p>
             {% for i in "12345" %}
             <label><input type="radio" name="q23" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>24. Helping others solve interpersonal or family issues</strong></p>
+            <p><strong>24. I care about sustainability and protecting the environment.</strong></p>
             {% for i in "12345" %}
             <label><input type="radio" name="q24" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
         <div class="question">
-            <p><strong>25. Working independently on long-term projects</strong></p>
+            <p><strong>25. I enjoy helping people understand complex topics or make decisions.
+
+            </strong></p>
             {% for i in "12345" %}
             <label><input type="radio" name="q25" value="{{ i }}"> {{ i }}</label>
             {% endfor %}
         </div>
 
-        <button type="submit" class="submit-button">Next</button>
+        <button type="submit" class="submit-button">Submit Quiz</button>
     </form>
 </div>
 {% endblock %}
