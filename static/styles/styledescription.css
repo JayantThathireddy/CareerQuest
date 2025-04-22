@@ -65,6 +65,7 @@ body {
     display: none;
     padding: 0 20px 20px;
     font-size: 15px;
+    grid-column: span 1;
 }
 
 .field-content.open {
@@ -106,6 +107,8 @@ body.light-theme .field-toggle:hover {
 body.light-theme .field-content {
     color: #333;
 }
+
+/* DARK MODE */
 body.dark-mode {
     background-color: #1e1e1e;
     color: #f0f0f0;
