@@ -27,7 +27,8 @@ urlpatterns = [
     path('quiz/9/', views.quiz_page_9, name='quiz_page_9'),
     path('quiz/10/', views.quiz_page_10, name='quiz_page_10'),
     path('quiz/results/', views.quiz_results, name='quiz_results'),
-    
+    path('privacy/', views.privacy, name='privacy'),
+    path('terms/', views.terms, name='terms'),
     
     # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),

@@ -220,3 +220,9 @@ def quiz_submit(request):
 
 def quiz_results(request):
     return render(request, 'base/quiz_results.html')
+
+def privacy(request):
+    return render(request, 'base/privacy.html')
+
+def terms(request):
+    return render(request, 'base/terms.html')
