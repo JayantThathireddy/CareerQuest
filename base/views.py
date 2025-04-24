@@ -188,32 +188,33 @@ def quiz_results(request):
 
     
     question_map = {
-        1: ["Technology", "Engineering"],
-        2: ["Healthcare", "Education & Social Impact"],
-        3: ["Creative & Design", "Technology"],
-        4: ["Business", "Technology"],
-        5: ["Education & Social Impact", "Public Services"],
-        6: ["Creative & Design", "Entertainment"],
-        7: ["Engineering", "Trade"],
-        8: ["Business", "Public Services"],
-        9: ["Entertainment", "Public Services"],
-        10: ["Science & Environment", "Technology"],
-        11: ["Education & Social Impact", "Public Services"],
-        12: ["Science & Environment", "Trade"],
-        13: ["Business", "Public Services"],
-        14: ["Education & Social Impact", "Public Services"],
-        15: ["Technology", "Business"],
-        16: ["Science & Environment"],
-        17: ["Business", "Public Services"],
-        18: ["Creative & Design"],
-        19: ["Trade", "Engineering"],
-        20: ["Creative & Design", "Business"],
-        21: ["Entertainment", "Education & Social Impact"],
-        22: ["Public Services", "Education & Social Impact"],
-        23: ["Business", "Healthcare"],
-        24: ["Education & Social Impact", "Healthcare"],
-        25: ["Technology", "Creative & Design"]
-    }
+    1: ["Technology", "Engineering"],
+    2: ["Healthcare", "Education & Social Impact"],
+    3: ["Creative & Design", "Technology"],
+    4: ["Business", "Technology"],
+    5: ["Education & Social Impact", "Public Services"],
+    6: ["Creative & Design", "Entertainment"],
+    7: ["Engineering", "Trade"],
+    8: ["Business", "Public Services"],
+    9: ["Entertainment", "Public Services"],
+    10: ["Science & Environment", "Technology"],
+    11: ["Education & Social Impact", "Public Services"],
+    12: ["Science & Environment", "Trade"],
+    13: ["Science & Environment", "Healthcare"],
+    14: ["Creative & Design", "Engineering"],
+    15: ["Trade", "Engineering"],
+    16: ["Creative & Design", "Business"],
+    17: ["Entertainment", "Education & Social Impact"],
+    18: ["Business", "Healthcare"],
+    19: ["Healthcare"],
+    20: ["Entertainment"],
+    21: ["Trade"],
+    22: ["Science & Environment"],
+    23: ["Technology", "Business"],
+    24: ["Creative & Design", "Healthcare"],
+    25: ["Public Services", "Engineering"]
+}
+
 
     
     for q in range(1, 26):
