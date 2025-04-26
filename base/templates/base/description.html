@@ -10,240 +10,229 @@
     <div class="job-text">
         <h1>Career Fields</h1>
         <h3>Explore the different industries based on your interests</h3>
-        <p>Click a field to see what jobs are inside!</p>
+        <p>
+            Discover a wide variety of career paths that match your passions, skills, and goals. Whether you're drawn to technology, healthcare, business, the arts, or anything in between, there's a field waiting for your talents. Each industry offers unique opportunities, work environments, and ways to make an impact.
+        </p>
+        <p>
+            Click on a field below to dive deeper, learn about different roles, and find out where your journey could take you!
+        </p>
+    </div>
+    <div class="job-image">
+        <img src="{% static 'images/career_fields.png' %}" alt="Career Fields Illustration">
     </div>
 </div>
 
 <div class="field-cards">
 
-    {% comment %} Example Field Card {% endcomment %}
+    <!-- TECHNOLOGY -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Technology</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Technology</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 The technology field powers the digital world through software development, data analysis, and user-centered design. 
                 It’s fast-growing, high-paying, and perfect for creative problem-solvers who enjoy working with code, systems, and innovation.
             </p>
-    
             <h4>Top Careers in Technology:</h4>
-            <ul>
-                <li>
-                    <strong>Software Developer:</strong> Design and build applications, tools, or websites using languages like Python, JavaScript, and Java.
-                </li>
-                <li>
-                    <strong>Data Analyst:</strong> Interpret business or scientific data to help companies make smart decisions using Excel, SQL, or Python.
-                </li>
-                <li>
-                    <strong>UX/UI Designer:</strong> Create clean and intuitive digital interfaces, focusing on both how they look (UI) and how users interact (UX).
-                </li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Software Developer </h2><p class="career-description">Design and build applications, tools, or websites using languages like Python, JavaScript, and Java.</p></div>
+                <div class="career-item"><h2 class="career-title">Data Analyst </h2><p class="career-description">Interpret business or scientific data to help companies make smart decisions using Excel, SQL, or Python.</p></div>
+                <div class="career-item"><h2 class="career-title">UX/UI Designer </h2><p class="career-description">Create clean and intuitive digital interfaces, focusing on both how they look (UI) and how users interact (UX).</p></div>
+            </div>
             <a href="{% url 'career_details' %}#technology" class="learn-more-link">Learn more →</a>
-
         </div>
     </div>
-    
 
+    <!-- BUSINESS -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Business</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Business</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 Business careers shape the strategies, operations, and financial health of companies across every industry. 
                 Ideal for strong communicators, strategic thinkers, and problem-solvers who enjoy leadership, planning, and decision-making.
             </p>
             <h4>Top Careers in Business:</h4>
-            <ul>
-                <li><strong>Marketing Specialist:</strong> Develop campaigns to promote products and engage target audiences.</li>
-                <li><strong>Financial Analyst:</strong> Analyze financial data to guide business investment and budgeting decisions.</li>
-                <li><strong>Project Manager:</strong> Lead cross-functional teams to deliver projects on time and within scope.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Marketing Specialist </h2><p class="career-description">Develop campaigns to promote products and engage target audiences.</p></div>
+                <div class="career-item"><h2 class="career-title">Financial Analyst </h2><p class="career-description">Analyze financial data to guide business investment and budgeting decisions.</p></div>
+                <div class="career-item"><h2 class="career-title">Project Manager </h2><p class="career-description">Lead cross-functional teams to deliver projects on time and within scope.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#business" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- EDUCATION & SOCIAL IMPACT -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Education & Social Impact</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Education & Social Impact</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 This field focuses on empowering individuals and communities through teaching, mentorship, and advocacy. 
                 Great for empathetic communicators passionate about making a difference in others' lives.
             </p>
             <h4>Top Careers in Education & Social Impact:</h4>
-            <ul>
-                <li><strong>High School Teacher:</strong> Instruct and mentor students in subjects like math, science, or history.</li>
-                <li><strong>Social Worker:</strong> Support individuals and families facing life challenges through counseling and resources.</li>
-                <li><strong>Career Counselor:</strong> Help people navigate their goals, skills, and opportunities for the future.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">High School Teacher </h2><p class="career-description">Instruct and mentor students in subjects like math, science, or history.</p></div>
+                <div class="career-item"><h2 class="career-title">Social Worker </h2><p class="career-description">Support individuals and families facing life challenges through counseling and resources.</p></div>
+                <div class="career-item"><h2 class="career-title">Career Counselor </h2><p class="career-description">Help people navigate their goals, skills, and opportunities for the future.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#education" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- HEALTHCARE -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Healthcare</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Healthcare</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 Healthcare is about helping people heal, recover, and thrive. Whether you’re hands-on with patients or behind the scenes in diagnostics, this field is full of purpose and variety.
             </p>
             <h4>Top Careers in Healthcare:</h4>
-            <ul>
-                <li><strong>Registered Nurse:</strong> Deliver direct patient care and coordinate with doctors and specialists.</li>
-                <li><strong>Physician Assistant:</strong> Examine patients, diagnose conditions, and assist in treatment plans.</li>
-                <li><strong>Medical Lab Technician:</strong> Test samples and assist doctors in identifying health issues.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Registered Nurse </h2><p class="career-description">Deliver direct patient care and coordinate with doctors and specialists.</p></div>
+                <div class="career-item"><h2 class="career-title">Physician Assistant </h2><p class="career-description">Examine patients, diagnose conditions, and assist in treatment plans.</p></div>
+                <div class="career-item"><h2 class="career-title">Medical Lab Technician </h2><p class="career-description">Test samples and assist doctors in identifying health issues.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#healthcare" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- ENGINEERING -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Engineering</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Engineering</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 Engineering drives innovation and solves real-world problems with math, physics, and creativity. 
                 From designing machines to building bridges, engineers make the world run better.
             </p>
             <h4>Top Careers in Engineering:</h4>
-            <ul>
-                <li><strong>Mechanical Engineer:</strong> Design mechanical systems like engines, robots, and tools.</li>
-                <li><strong>Electrical Engineer:</strong> Create and test systems using electricity, electronics, and circuitry.</li>
-                <li><strong>Civil Engineer:</strong> Plan and oversee construction of buildings, roads, and infrastructure.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Mechanical Engineer </h2><p class="career-description">Design mechanical systems like engines, robots, and tools.</p></div>
+                <div class="career-item"><h2 class="career-title">Electrical Engineer </h2><p class="career-description">Create and test systems using electricity, electronics, and circuitry.</p></div>
+                <div class="career-item"><h2 class="career-title">Civil Engineer </h2><p class="career-description">Plan and oversee construction of buildings, roads, and infrastructure.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#engineering" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- CREATIVE ARTS -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Creative & Design</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Creative & Design</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 Creativity meets technology in this field, where visuals, storytelling, and branding come together. 
                 Ideal for imaginative thinkers who love shaping how things look, feel, and connect with people.
             </p>
             <h4>Top Careers in Creative & Design:</h4>
-            <ul>
-                <li><strong>Graphic Designer:</strong> Craft visual assets like logos, ads, and websites.</li>
-                <li><strong>Animator:</strong> Produce moving imagery in 2D or 3D for entertainment or education.</li>
-                <li><strong>Content Creator:</strong> Build engaging content for YouTube, TikTok, or blogs to grow audiences.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Graphic Designer </h2><p class="career-description">Craft visual assets like logos, ads, and websites.</p></div>
+                <div class="career-item"><h2 class="career-title">Animator </h2><p class="career-description">Produce moving imagery in 2D or 3D for entertainment or education.</p></div>
+                <div class="career-item"><h2 class="career-title">Content Creator </h2><p class="career-description">Build engaging content for YouTube, TikTok, or blogs to grow audiences.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#creative" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- ENTERTAINMENT -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Entertainment</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Entertainment</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 The entertainment world brings joy, emotion, and stories to life through performance, audio, and gaming. 
                 Perfect for creative performers and behind-the-scenes pros alike.
             </p>
             <h4>Top Careers in Entertainment:</h4>
-            <ul>
-                <li><strong>Actor:</strong> Perform roles in movies, TV, theater, or voice acting.</li>
-                <li><strong>Sound Designer:</strong> Craft sound effects and atmospheres for media experiences.</li>
-                <li><strong>Game Developer:</strong> Design, code, and test video games or interactive content.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Actor </h2><p class="career-description">Perform roles in movies, TV, theater, or voice acting.</p></div>
+                <div class="career-item"><h2 class="career-title">Sound Designer </h2><p class="career-description">Craft sound effects and atmospheres for media experiences.</p></div>
+                <div class="career-item"><h2 class="career-title">Game Developer </h2><p class="career-description">Design, code, and test video games or interactive content.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#entertainment" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- SCIENCE -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Science & Environment</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Science</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 Curious minds thrive in science and environmental careers, where research, experiments, and analysis are used to solve big challenges and protect the planet.
             </p>
             <h4>Top Careers in Science & Environment:</h4>
-            <ul>
-                <li><strong>Environmental Scientist:</strong> Study ecosystems and help develop sustainability strategies.</li>
-                <li><strong>Lab Technician:</strong> Support scientific research by preparing and analyzing experiments.</li>
-                <li><strong>GIS Analyst:</strong> Use geographic data to map patterns and support decision-making.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Environmental Scientist </h2><p class="career-description">Study ecosystems and help develop sustainability strategies.</p></div>
+                <div class="career-item"><h2 class="career-title">Lab Technician </h2><p class="career-description">Support scientific research by preparing and analyzing experiments.</p></div>
+                <div class="career-item"><h2 class="career-title">GIS Analyst </h2><p class="career-description">Use geographic data to map patterns and support decision-making.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#science" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- PUBLIC SERVICES -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Public Services</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Public Services</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 These roles help society run smoothly and safely — from emergency response to legal services. 
                 If you care about justice, structure, and service, this is a powerful path.
             </p>
             <h4>Top Careers in Public Services:</h4>
-            <ul>
-                <li><strong>Police Officer:</strong> Respond to emergencies and enforce public safety laws.</li>
-                <li><strong>Firefighter:</strong> Extinguish fires and rescue people in dangerous situations.</li>
-                <li><strong>Paralegal:</strong> Assist lawyers with case prep, research, and legal documentation.</li>
-            </ul>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Police Officer </h2><p class="career-description">Respond to emergencies and enforce public safety laws.</p></div>
+                <div class="career-item"><h2 class="career-title">Firefighter </h2><p class="career-description">Extinguish fires and rescue people in dangerous situations.</p></div>
+                <div class="career-item"><h2 class="career-title">Paralegal </h2><p class="career-description">Assist lawyers with case prep, research, and legal documentation.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#public" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
+    <!-- TRADES -->
     <div class="field-card">
-        <button class="field-toggle">
-            <span class="field-label">Trade</span>
-            <span class="arrow">▼</span>
-        </button>
+        <button class="field-toggle"><span class="field-label">Trade</span><span class="arrow">▼</span></button>
         <div class="field-content">
             <p>
                 Trades are essential, hands-on careers that keep homes, cities, and industries running. 
                 They offer solid pay, fast training, and job stability — no degree required.
             </p>
-            <h4>Top Careers in Trade:</h4>
-            <ul>
-                <li><strong>Electrician:</strong> Wire buildings, troubleshoot electrical problems, and ensure safety.</li>
-                <li><strong>Plumber:</strong> Install and repair water systems in residential and commercial settings.</li>
-                <li><strong>HVAC Technician:</strong> Maintain and fix heating, ventilation, and air conditioning systems.</li>
-            </ul>
+            <h4>Top Careers in Trades:</h4>
+            <div class="career-list">
+                <div class="career-item"><h2 class="career-title">Electrician </h2><p class="career-description">Wire buildings, troubleshoot electrical problems, and ensure safety.</p></div>
+                <div class="career-item"><h2 class="career-title">Plumber </h2><p class="career-description">Install and repair water systems in residential and commercial settings.</p></div>
+                <div class="career-item"><h2 class="career-title">HVAC Technician </h2><p class="career-description">Maintain and fix heating, ventilation, and air conditioning systems.</p></div>
+            </div>
             <a href="{% url 'career_details' %}#trade" class="learn-more-link">Learn more →</a>
         </div>
     </div>
-    
+
 </div>
 {% endblock %}
 
 {% block extra_js %}
 <script>
-   document.addEventListener('DOMContentLoaded', function () {
-    console.log("JS loaded!");
+    document.addEventListener('DOMContentLoaded', function () {
+        const allToggles = document.querySelectorAll('.field-toggle');
+        const allContents = document.querySelectorAll('.field-content');
 
-    document.querySelectorAll('.field-toggle').forEach(btn => {
-        btn.addEventListener('click', () => {
-            console.log("Button clicked:", btn);
+        allToggles.forEach(toggle => {
+            toggle.addEventListener('click', function () {
+                const content = this.nextElementSibling;
+                const isOpen = content.classList.contains('open');
 
-            const content = btn.nextElementSibling;
-            content.classList.toggle('open');
+                allContents.forEach(c => {
+                    c.classList.remove('open');
+                    c.style.maxHeight = null;
+                    c.style.paddingBottom = '0px';
+                    const arrow = c.previousElementSibling.querySelector('.arrow');
+                    if (arrow) arrow.textContent = '▼';
+                });
 
-            const arrow = btn.querySelector('.arrow');
-            arrow.textContent = content.classList.contains('open') ? '▲' : '▼';
+                if (!isOpen) {
+                    content.classList.add('open');
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.paddingBottom = "20px";
+                    const arrow = this.querySelector('.arrow');
+                    if (arrow) arrow.textContent = '▲';
+                }
+            });
         });
     });
-});
-
 </script>
 {% endblock %}
