@@ -2,83 +2,109 @@
 {% load static %}
 
 {% block content %}
-<div class="profile-settings-container">
-    <h2>Profile Settings</h2>
+<div class="profile-settings-wrapper">
+    <div class="profile-settings-container">
+        <h2>Profile Settings</h2>
 
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <div class="form-group">
-            {% if request.user.profile.profile_picture and request.user.profile.profile_picture.name != 'profile_pics/emptyprofpic.png' %}
-                <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
-            {% else %}
-                <img src="{% static 'profile_pics/emptyprofpic.png' %}" alt="Profile Picture" class="profile-picture">
-            {% endif %}<br>
-            {{ form.profile_picture }}
-        </div>
-        <div class="form-group">
-            <label for="id_dark_mode" class="dark-mode-label">Dark Mode</label>
-            <label class="switch">
-                {{ form.dark_mode }}
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <button type="submit" class="save-button">Save Changes</button>
-    </form>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {% if request.user.profile.profile_picture and request.user.profile.profile_picture.name != 'profile_pics/emptyprofpic.png' %}
+                    <img src="{{ request.user.profile.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
+                {% else %}
+                    <img src="{% static 'profile_pics/emptyprofpic.png' %}" alt="Profile Picture" class="profile-picture">
+                {% endif %}<br>
+                <button type="button" class="change-pfp-button">Change Profile Picture</button>
+                <span class="file-name-display" id="file-name-display">
+                    {{ form.profile_picture }}
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="id_dark_mode" class="dark-mode-label">Dark Mode</label>
+                <label class="switch">
+                    {{ form.dark_mode }}
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <button type="submit" class="save-button">Save Changes</button>
+        </form>
 
-    <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
-        {% csrf_token %}
-        <input type="hidden" name="delete_account" value="true">
-        <button type="submit" class="delete-button">Delete Account</button>
-    </form>
+        <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+            {% csrf_token %}
+            <input type="hidden" name="delete_account" value="true">
+            <button type="submit" class="delete-button">Delete Account</button>
+        </form>
+    </div>
 </div>
 
 
 <style>
+    .profile-settings-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: calc(100vh - 200px);
+        padding: 2rem 1rem;
+    }
+
     .profile-settings-container {
-        max-width: 500px;
+        width: 100%;
+        max-width: 600px;
         margin: 0 auto;
-        padding: 2rem;
+        padding: 3rem;
         background: rgba(255,255,255,0.95);
         border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
     }
 
     .profile-settings-container h2 {
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
+        font-size: 2rem;
     }
 
     .profile-picture {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         margin: auto;
         align-items: center;
         display: block;
         background-color: #e0e0e0;
+        margin-bottom: 1.5rem;
+        border: 3px solid #2196F3;
+        box-shadow: 0 0 10px rgba(33, 150, 243, 0.3);
     }
 
     .form-group {
-        margin: 1rem 0;
+        margin: 1.5rem 0;
+        text-align: center;
     }
 
     .save-button {
         background: #4CAF50;
         border: none;
-        padding: 0.5rem 1rem;
+        padding: 0.75rem 1.5rem;
         color: white;
         cursor: pointer;
         border-radius: 6px;
+        font-size: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+        transition: background 0.3s;
     }
 
     .delete-button {
         background: #e74c3c;
         border: none;
-        padding: 0.5rem 1rem;
+        padding: 0.75rem 1.5rem;
         color: white;
         cursor: pointer;
         border-radius: 6px;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        transition: background 0.3s;
     }
 
     .save-button:hover {
@@ -88,45 +114,107 @@
     .delete-button:hover {
         background: #c0392b;
     }
+    
+    .change-pfp-button {
+        background: #2196F3;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        color: white;
+        cursor: pointer;
+        border-radius: 6px;
+        margin: 0.5rem auto 1.5rem;
+        width: 100%;
+        max-width: 300px;
+        display: block;
+        font-size: 1rem;
+        transition: background 0.3s;
+    }
+
+    .change-pfp-button:hover {
+        background: #0b7dda;
+    }
+    
+    input[type="file"] {
+        display: none;
+    }
+    
+    .file-name-display {
+        display: none;
+        font-size: 0.8rem;
+        color: #666;
+        margin-top: 0.3rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .profile-settings-container {
+            padding: 2rem;
+        }
+        
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+        }
+    }
 </style>
 
 
 <style>
     .dark-mode-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
+        display: block;
+        margin-bottom: 15px;
+        font-weight: bold;
+        font-size: 1.2rem;
     }
     .switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
+        position: relative;
+        display: inline-block;
+        width: 70px;
+        height: 40px;
     }
     .switch input { display: none; }
     .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0; left: 0;
-      right: 0; bottom: 0;
-      background-color: #ccc;
-      transition: .4s;
-      border-radius: 34px;
+        position: absolute;
+        cursor: pointer;
+        top: 0; left: 0;
+        right: 0; bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 40px;
     }
     .slider:before {
-      position: absolute;
-      content: "";
-      height: 26px; width: 26px;
-      left: 4px; bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
+        position: absolute;
+        content: "";
+        height: 32px; width: 32px;
+        left: 4px; bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
     }
     input:checked + .slider {
-      background-color: #2196F3;
+        background-color: #2196F3;
     }
     input:checked + .slider:before {
-      transform: translateX(26px);
+        transform: translateX(30px);
     }
 </style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const changeButton = document.querySelector('.change-pfp-button');
+        const fileInput = document.querySelector('input[type="file"]');
+        const fileNameDisplay = document.getElementById('file-name-display');
+        
+        changeButton.addEventListener('click', function() {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', function() {
+            if(this.files.length > 0) {
+                const fileName = this.files[0].name;
+                changeButton.textContent = 'Selected: ' + fileName.substring(0, 20) + (fileName.length > 20 ? '...' : '');
+            }
+        });
+    });
+</script>
 {% endblock %}
