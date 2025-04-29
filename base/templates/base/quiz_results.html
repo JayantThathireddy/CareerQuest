@@ -5,12 +5,80 @@
     <p>Based on your answers, a great career path for you might be:</p>
 
     {% for field, score in top_fields %}
-        <h3 style="color: #007acc; margin: 10px 0;">{{ field }}</h3>
+        {% with field_lower=field|lower %}
+            {% if "creative" in field_lower or "design" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#creative" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "business" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#business" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "education" in field_lower or "social" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#education" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "healthcare" in field_lower or "health" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#healthcare" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "technology" in field_lower or "tech" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#technology" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "engineering" in field_lower or "engineer" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#engineering" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "entertainment" in field_lower or "media" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#entertainment" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "science" in field_lower or "environment" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#science" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "public" in field_lower or "government" in field_lower or "service" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#public" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% elif "trade" in field_lower or "craft" in field_lower %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}#trade" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% else %}
+                <h3 style="color: #007acc; margin: 10px 0;">
+                    <a href="{% url 'career_details' %}" style="text-decoration: none; color: #007acc;">
+                        {{ field }}
+                    </a>
+                </h3>
+            {% endif %}
+        {% endwith %}
     {% endfor %}
 
     <div style="margin-top: 25px;">
         <a href="{% url 'quiz' %}" class="job-desc-btn" style="margin-right: 15px;">Take It Again</a>
-        <a href="{% url 'description' %}" class="job-desc-btn">Explore Careers</a>
+        <a href="{% url 'career_details' %}" class="job-desc-btn">Explore Careers</a>
     </div>
 </div>
 {% endblock %}

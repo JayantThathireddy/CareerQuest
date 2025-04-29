@@ -26,7 +26,7 @@
                 <img src="{% static 'profile_pics/emptyprofpic.png' %}" alt="Profile Picture" class="profile-pic">
             {% endif %}
             <div class="dropdown-content">
-                <a href="#">Bookmarks</a>
+                {#<a href="#">Bookmarks</a>#}
                 <a href="/profile-settings">Profile Settings</a>
                 <a href="#" onclick="showLogoutPopup()">Logout</a>
             </div>
@@ -37,7 +37,6 @@
     </div>
 </div>
 
-{# For Logging Out #}
 <div id="logoutPopup" class="popup-overlay">
     <div class="popup">
         <p>Would you like to logout?</p>
