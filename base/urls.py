@@ -12,8 +12,8 @@ urlpatterns = [
     path('logout/', views.logoutUser, name='logout'),
     path('register/', views.registerPage, name='register'),
     path('profile-settings/', views.profile_settings, name='profile-settings'),
-    path('quiz/', views.quiz, name='quiz'),  # Quiz intro page
-    path('quiz/questions/', views.quiz_questions, name='quiz_questions'),  # ✅ New quiz-taking page
+    path('quiz/', views.quiz, name='quiz'),
+    path('quiz/questions/', views.quiz_questions, name='quiz_questions'),
     path('description/', views.description, name='description'),
     path('quiz/submit/', views.quiz_submit, name='quiz_submit'),
     path('quiz/1/', views.quiz_page_1, name='quiz_page_1'),
@@ -22,12 +22,12 @@ urlpatterns = [
     path('quiz/4/', views.quiz_page_4, name='quiz_page_4'),
     path('quiz/5/', views.quiz_page_5, name='quiz_page_5'),
     path('quiz/results/', views.quiz_results, name='quiz_results'),
+    path('quiz/save-results/', views.save_results, name='save_results'),
     path('privacy/', views.privacy, name='privacy'),
     path('terms/', views.terms, name='terms'),
     
     path('career_description/', views.career_description, name='career_details'),
 
-    # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),
 ]
 
