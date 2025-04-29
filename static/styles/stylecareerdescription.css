@@ -154,11 +154,14 @@ body.dark-mode .career-detail-wrapper {
 
 /* Smooth fade-in for highlighted words */
 mark {
-    background-color: yellow;
-    padding: 2px 4px;
-    border-radius: 4px;
+    background: linear-gradient(90deg, #a8e6ff, #d0f0ff);
+    color: #000;
+    padding: 3px 6px;
+    border-radius: 8px;
+    font-weight: 600;
     animation: fadeIn 0.4s ease-in-out;
 }
+
 
 @keyframes fadeIn {
     from { background-color: transparent; }
