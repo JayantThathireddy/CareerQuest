@@ -6,6 +6,14 @@
 {% endblock %}
 
 {% block content %}
+<div id="search-container">
+    <input type="text" id="career-search" placeholder="Search careers...">
+</div>
+
+<div id="no-results" style="display:none; text-align:center; margin-top:20px; font-size:18px; color:gray;">
+    No careers found.
+</div>
+
 <div class="career-detail-wrapper">
     <h1>Explore Career Fields in Depth</h1>
     <p>Here you’ll find more detailed information about each industry and the wide range of job opportunities it offers.</p>
@@ -664,4 +672,73 @@
         </ul>
     </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('career-search');
+        const jobDetails = document.querySelectorAll('.job-detail');
+        const noResults = document.getElementById('no-results');
+        let matchingJobs = [];
+        let currentMatchIndex = 0;
+
+        // Separate typing and Enter key behavior
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            let found = false;
+
+            matchingJobs = []; // Reset matches
+            currentMatchIndex = 0;
+            document.querySelectorAll('.scrolled').forEach(el => el.classList.remove('scrolled'));
+
+            jobDetails.forEach(function(job) {
+                const titleElement = job.querySelector('h3');
+                const descriptionElement = job.querySelector('p');
+                const title = titleElement.textContent.toLowerCase();
+                const description = descriptionElement.textContent.toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    job.style.display = '';
+                    found = true;
+                    matchingJobs.push(job);
+
+                    removeHighlights(titleElement);
+                    removeHighlights(descriptionElement);
+                    highlightMatch(titleElement, searchTerm);
+                    highlightMatch(descriptionElement, searchTerm);
+
+                } else {
+                    job.style.display = 'none';
+                    removeHighlights(titleElement);
+                    removeHighlights(descriptionElement);
+                }
+            });
+
+            noResults.style.display = found ? 'none' : 'block';
+        });
+
+        searchInput.addEventListener('keydown', function(event) {
+            if (event.key === "Enter" && matchingJobs.length > 0) {
+                event.preventDefault(); // Prevent form submission if any
+                matchingJobs[currentMatchIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                matchingJobs[currentMatchIndex].classList.add('scrolled');
+                
+                currentMatchIndex = (currentMatchIndex + 1) % matchingJobs.length;
+            }
+        });
+
+        function highlightMatch(element, term) {
+            const text = element.textContent;
+            if (!term) {
+                element.innerHTML = text;
+                return;
+            }
+            const regex = new RegExp(`(${term})`, 'gi');
+            const newText = text.replace(regex, `<mark>$1</mark>`);
+            element.innerHTML = newText;
+        }
+
+        function removeHighlights(element) {
+            element.innerHTML = element.textContent;
+        }
+    });
+</script>
 {% endblock %}
