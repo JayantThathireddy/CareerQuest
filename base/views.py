@@ -24,14 +24,23 @@ def home(request):
 def quiz(request):
     retake = request.GET.get('retake', 'false') == 'true'
     
-    request.session['retaking_quiz_in_progress'] = retake
-    
-    if not retake and request.user.is_authenticated:
+    if retake:
+        for i in range(1, 26):
+            key = f'quiz_q{i}'
+            if key in request.session:
+                del request.session[key]
+        request.session['retaking_quiz_in_progress'] = True
+
+        if request.user.is_authenticated:
+            QuizResult.objects.filter(user=request.user).delete()
+
+    elif request.user.is_authenticated:
         if QuizResult.objects.filter(user=request.user).exists():
             return redirect('quiz_results')
-    
+
     dark_mode = request.session.get('dark_mode', False)
     return render(request, 'base/quiz.html', {'dark_mode': dark_mode, 'retake': retake})
+
 
 def quiz_questions(request):
     retake = request.GET.get('retake', 'false') == 'true'

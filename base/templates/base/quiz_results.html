@@ -77,7 +77,7 @@
     {% endfor %}
 
     <div style="margin-top: 25px;">
-        <a href="{% url 'quiz' %}?retake=true" class="job-desc-btn" style="margin-right: 15px;">Take It Again</a>
+        <a href="{% url 'quiz' %}?retake=true" class="job-desc-btn" style="margin-right: 15px;" id="retake-btn">Take It Again</a>
         <a href="{% url 'career_details' %}" class="job-desc-btn" style="margin-right: 15px;">Explore Careers</a>
         {% if user.is_authenticated %}
             {% if result_saved %}
@@ -125,6 +125,19 @@
             modal.style.display = "none";
         }
     }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const retakeBtn = document.getElementById("retake-btn");
+        retakeBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const confirmed = confirm("Are you sure you want to retake the quiz? Your previous results will be deleted.");
+            if (confirmed) {
+                window.location.href = retakeBtn.href;
+            }
+        });
+    });
 </script>
 {% endif %}
 {% endblock %}
