@@ -1,10 +1,10 @@
 {% extends 'main.html' %}
 {% load static %}
-
+        
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'styles/stylequizquestions.css' %}">
 {% endblock %}
-
+        
 {% block content %}
 <div class="quiz-container">
     <h2>Career Path Quiz (Page 2 of 5)</h2>
@@ -12,6 +12,10 @@
 
     <form method="POST" action="{% url 'quiz_page_2' %}">
         {% csrf_token %}
+        
+        {% if retake %}
+        <input type="hidden" name="retake" value="true">
+        {% endif %}
 
         <div class="question">
             <p><strong>6. I like writing content like blogs, articles, or stories.</strong></p>

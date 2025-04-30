@@ -23,12 +23,12 @@ urlpatterns = [
     path('quiz/4/', views.quiz_page, {'page_num': 4}, name='quiz_page_4'),
     path('quiz/5/', views.quiz_page, {'page_num': 5}, name='quiz_page_5'),
     path('quiz/results/', views.quiz_results, name='quiz_results'),
+    path('quiz/save-results/', views.save_results, name='save_results'),
     path('privacy/', views.privacy, name='privacy'),
     path('terms/', views.terms, name='terms'),
     
     path('career_description/', views.career_description, name='career_details'),
 
-    # 🔐 Login
     path('login/', auth_views.LoginView.as_view(template_name='base/login.html'), name='login'),
 ]
 

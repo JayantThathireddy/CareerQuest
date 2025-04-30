@@ -12,6 +12,10 @@
 
     <form method="POST" action="{% url 'quiz_page_1' %}">
         {% csrf_token %}
+        
+        {% if retake %}
+        <input type="hidden" name="retake" value="true">
+        {% endif %}
 
         <div class="question">
             <p><strong>1. I enjoy solving technical or logical problems.</strong></p>

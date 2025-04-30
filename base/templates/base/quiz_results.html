@@ -77,8 +77,67 @@
     {% endfor %}
 
     <div style="margin-top: 25px;">
-        <a href="{% url 'quiz' %}" class="job-desc-btn" style="margin-right: 15px;">Take It Again</a>
-        <a href="{% url 'career_details' %}" class="job-desc-btn">Explore Careers</a>
+        <a href="{% url 'quiz' %}?retake=true" class="job-desc-btn" style="margin-right: 15px;" id="retake-btn">Take It Again</a>
+        <a href="{% url 'career_details' %}" class="job-desc-btn" style="margin-right: 15px;">Explore Careers</a>
+        {% if user.is_authenticated %}
+            {% if result_saved %}
+                <a href="#" class="job-desc-btn saved-btn" style="background-color: #28a745;">Results Saved</a>
+            {% else %}
+                <form method="POST" action="{% url 'save_results' %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="job-desc-btn">Save Results</button>
+                </form>
+            {% endif %}
+        {% else %}
+            <a href="#" class="job-desc-btn" id="save-results-btn">Save Results</a>
+        {% endif %}
     </div>
 </div>
+
+{% if not user.is_authenticated %}
+<div id="login-modal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+    <div class="modal-content" style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 5px;">
+        <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+        <h2 style="text-align: center; margin-bottom: 20px;">Login Required</h2>
+        <p style="text-align: center; margin-bottom: 20px;">You need to login or create an account to save your quiz results.</p>
+        <div style="display: flex; justify-content: center; gap: 20px;">
+            <a href="{% url 'login' %}?next={% url 'quiz_results' %}" class="job-desc-btn">Login</a>
+            <a href="{% url 'register' %}?next={% url 'quiz_results' %}" class="job-desc-btn">Sign Up</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("login-modal");
+    var btn = document.getElementById("save-results-btn");
+    var span = document.getElementsByClassName("close")[0];
+    
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const retakeBtn = document.getElementById("retake-btn");
+        retakeBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            const confirmed = confirm("Are you sure you want to retake the quiz? Your previous results will be deleted.");
+            if (confirmed) {
+                window.location.href = retakeBtn.href;
+            }
+        });
+    });
+</script>
+{% endif %}
 {% endblock %}

@@ -7,12 +7,12 @@
 
 {% block content %}
 <div class="quiz-intro-container">
-    <h2>Discover Your Path</h2>
+    <h2>Discover Your Career Path</h2>
 
     <div class="quiz-box">
-        <h1>Take Our Quiz</h1>
+        <h1>Find the Job That Fits You</h1>
         <p>
-            Not sure which career path is right for you? Our quiz will help you uncover the jobs that match your interests, strengths, and personality.
+            Unsure about your future career? Take our quick and easy quiz to discover roles that align with your interests, personality, and skills.
         </p>
         <ul>
             <li>✅ Quick – only 3–5 minutes</li>
@@ -20,7 +20,12 @@
             <li>✅ No login or signup required</li>
         </ul>
 
-        <a href="{% url 'quiz_start' %}" class="start-quiz-button">Start Quiz</a>
+        {% if request.GET.retake == 'true' %}
+            <p class="retake-message">Ready to try again? Let’s find your perfect match.</p>
+            <a href="{% url 'quiz_start' %}?retake=true" class="start-quiz-button" aria-label="Retake the career quiz">Start Quiz</a>
+        {% else %}
+            <a href="{% url 'quiz_start' %}" class="start-quiz-button" aria-label="Begin the career quiz">Start Quiz</a>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

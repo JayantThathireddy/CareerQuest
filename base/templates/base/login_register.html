@@ -14,6 +14,9 @@
 
     <form method="POST" action="">
         {% csrf_token %}
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
 
         <div class="form-group">
             <label>Username</label>
@@ -29,7 +32,7 @@
     </form>
 
     <div class="login-links">
-        <p><a href="{% url 'register' %}">Don’t have an Account?</a></p>
+        <p><a href="{% url 'register' %}{% if next %}?next={{ next }}{% endif %}">Don't have an Account?</a></p>
     </div>
 </div>
 
@@ -40,6 +43,9 @@
 
     <form method="POST" action="">
         {% csrf_token %}
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
         {{form.as_p}}
         <div class="alert alert-danger">
             {% for field, errors in form.errors.items %}
@@ -53,7 +59,7 @@
     </form>
 
     <div class="register-links">
-        <p><a href="{% url 'login' %}">Already have an Account?</a></p>
+        <p><a href="{% url 'login' %}{% if next %}?next={{ next }}{% endif %}">Already have an Account?</a></p>
     </div>
 </div>
 

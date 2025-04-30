@@ -8,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
 from django.http import JsonResponse
+from .models import QuizResult
 
 def set_dark_mode(request):
     if request.method == "POST":
@@ -16,25 +17,42 @@ def set_dark_mode(request):
         return JsonResponse({'status': 'success', 'dark_mode': dark_mode})
     return JsonResponse({'status': 'error'}, status=400)
 
-
-
 def home(request):
     dark_mode = request.session.get('dark_mode', False)
     return render(request, 'base/home.html', {'dark_mode': dark_mode})
 
 def quiz(request):
+    retake = request.GET.get('retake', 'false') == 'true'
+    
+    if retake:
+        for i in range(1, 26):
+            key = f'quiz_q{i}'
+            if key in request.session:
+                del request.session[key]
+        request.session['retaking_quiz_in_progress'] = True
+
+        if request.user.is_authenticated:
+            QuizResult.objects.filter(user=request.user).delete()
+
+    elif request.user.is_authenticated:
+        if QuizResult.objects.filter(user=request.user).exists():
+            return redirect('quiz_results')
+
     dark_mode = request.session.get('dark_mode', False)
-    return render(request, 'base/quiz.html', {'dark_mode': dark_mode})  
+    return render(request, 'base/quiz.html', {'dark_mode': dark_mode, 'retake': retake})
+
 
 def start_quiz(request):
     # Clear previous quiz answers
+    retake = request.GET.get('retake', 'false') == 'true'
+    
+    if not retake and request.user.is_authenticated:
+        if QuizResult.objects.filter(user=request.user).exists():
+            return redirect('quiz_results')
     for i in range(1, 26):
         request.session.pop(f'quiz_q{i}', None)
     return redirect('quiz_page_1')  
 
-# def quiz_questions(request):
-#     questions = []  
-#     return render(request, 'base/quiz_questions.html', {'questions': questions})
 
 def about(request):
     dark_mode = request.session.get('dark_mode', False)
@@ -43,6 +61,10 @@ def about(request):
 def loginPage(request):
     page = 'login'
     context = {'page': page}
+    
+    # Save the 'next' parameter if present
+    next_page = request.GET.get('next', 'home')
+    
     if request.method == 'POST':
         username = request.POST.get('username').lower()
         password = request.POST.get('password')
@@ -57,10 +79,13 @@ def loginPage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            # Redirect to the next page if provided
+            return redirect(request.POST.get('next', 'home'))
         else:
             messages.error(request, "Password is incorrect.")
-
+    
+    # Pass the next parameter to the template
+    context['next'] = next_page
     return render(request, 'base/login_register.html', context)
 
 def logoutUser(request):
@@ -69,6 +94,7 @@ def logoutUser(request):
 
 def registerPage(request):
     form = UserCreationForm()
+    next_page = request.GET.get('next', 'home')
 
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -77,13 +103,13 @@ def registerPage(request):
             user.username = user.username.lower()
             user.save()
             login(request, user)
-            return redirect('home')
+            # Redirect to the next page if provided
+            return redirect(request.POST.get('next', 'home'))
         else:
             messages.error(request, "An error occurred during registration.")
             print(form.errors)
 
-
-    return render(request, 'base/login_register.html', {'form': form})
+    return render(request, 'base/login_register.html', {'form': form, 'next': next_page})
 
 @login_required
 def profile_settings(request):
@@ -116,6 +142,13 @@ def quiz_page(request, page_num):
 
     if page_num not in page_ranges:
         return redirect('quiz_page_1')
+    
+    retake = request.GET.get('retake', request.POST.get('retake', 'false')) == 'true'
+    
+    if not retake and request.user.is_authenticated:
+        if QuizResult.objects.filter(user=request.user).exists():
+            return redirect('quiz_results')
+            
 
     required = [f'q{i}' for i in page_ranges[page_num]]
     template_name = f'base/quiz_questions{"" if page_num == 1 else page_num}.html'
@@ -146,9 +179,6 @@ def quiz_submit(request):
         return HttpResponseRedirect(reverse('quiz_results')) 
     else:
         return HttpResponseRedirect(reverse('quiz'))
-
-def quiz_results(request):
-    return render(request, 'base/quiz_results.html')
 
 def privacy(request):
     return render(request, 'base/privacy.html')
@@ -197,8 +227,7 @@ def quiz_results(request):
     23: ["Technology", "Business"],
     24: ["Creative & Design", "Healthcare"],
     25: ["Public Services", "Engineering"]
-}
-
+    }
 
     
     for q in range(1, 26):
@@ -209,11 +238,60 @@ def quiz_results(request):
 
   
     sorted_fields = sorted(field_scores.items(), key=lambda x: x[1], reverse=True)
-    top_fields = sorted_fields[:2]  
+    top_fields = sorted_fields[:2]
+    
+    request.session['top_field_1'] = top_fields[0][0]
+    request.session['top_field_2'] = top_fields[1][0] if len(top_fields) > 1 else None
+    request.session['score_field_1'] = top_fields[0][1]
+    request.session['score_field_2'] = top_fields[1][1] if len(top_fields) > 1 else None
+    
+    retaking_quiz = request.session.pop('retaking_quiz', False)
+    
+    result_saved = False
+    if request.user.is_authenticated:
+        existing_result = QuizResult.objects.filter(user=request.user).first()
+        if existing_result and retaking_quiz:
+            existing_result.top_field_1 = request.session.get('top_field_1', '')
+            existing_result.top_field_2 = request.session.get('top_field_2', '')
+            existing_result.score_field_1 = request.session.get('score_field_1', 0)
+            existing_result.score_field_2 = request.session.get('score_field_2', 0)
+            existing_result.save()
+            messages.success(request, "Your quiz results have been updated!")
+            result_saved = True
+        else:
+            result_saved = QuizResult.objects.filter(user=request.user).exists()
 
     return render(request, 'base/quiz_results.html', {
         "top_fields": top_fields,
+        "result_saved": result_saved
     })
+
+@login_required
+@login_required
+def save_results(request):
+    if request.method == 'POST':
+        existing_result = QuizResult.objects.filter(user=request.user).first()
+        
+        if existing_result:
+            existing_result.top_field_1 = request.session.get('top_field_1', '')
+            existing_result.top_field_2 = request.session.get('top_field_2', '')
+            existing_result.score_field_1 = request.session.get('score_field_1', 0)
+            existing_result.score_field_2 = request.session.get('score_field_2', 0)
+            existing_result.save()
+            messages.success(request, "Your quiz results have been updated!")
+        else:
+            QuizResult.objects.create(
+                user=request.user,
+                top_field_1=request.session.get('top_field_1', ''),
+                top_field_2=request.session.get('top_field_2', ''),
+                score_field_1=request.session.get('score_field_1', 0),
+                score_field_2=request.session.get('score_field_2', 0)
+            )
+            messages.success(request, "Your quiz results have been saved!")
+        
+        return redirect('quiz_results')
+    
+    return redirect('quiz_results')
 
 def career_description(request):
     return render(request, 'base/career_description.html')

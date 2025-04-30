@@ -676,69 +676,76 @@
     document.addEventListener('DOMContentLoaded', function() {
         const searchInput = document.getElementById('career-search');
         const jobDetails = document.querySelectorAll('.job-detail');
+        const sections = document.querySelectorAll('.career-section');
         const noResults = document.getElementById('no-results');
-        let matchingJobs = [];
-        let currentMatchIndex = 0;
+        let scrollTimer = null;
 
-        // Separate typing and Enter key behavior
         searchInput.addEventListener('input', function() {
             const searchTerm = searchInput.value.trim().toLowerCase();
             let found = false;
 
-            matchingJobs = []; // Reset matches
-            currentMatchIndex = 0;
             document.querySelectorAll('.scrolled').forEach(el => el.classList.remove('scrolled'));
 
             jobDetails.forEach(function(job) {
-                const titleElement = job.querySelector('h3');
-                const descriptionElement = job.querySelector('p');
-                const title = titleElement.textContent.toLowerCase();
-                const description = descriptionElement.textContent.toLowerCase();
+                const fullText = job.textContent.toLowerCase();
 
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                if (searchTerm && fullText.includes(searchTerm)) {
                     job.style.display = '';
                     found = true;
-                    matchingJobs.push(job);
 
-                    removeHighlights(titleElement);
-                    removeHighlights(descriptionElement);
-                    highlightMatch(titleElement, searchTerm);
-                    highlightMatch(descriptionElement, searchTerm);
-
-                } else {
+                    removeHighlights(job);
+                    highlightMatch(job, searchTerm);
+                } else if (searchTerm) {
                     job.style.display = 'none';
-                    removeHighlights(titleElement);
-                    removeHighlights(descriptionElement);
+                    removeHighlights(job);
+                } else {
+                    job.style.display = '';
+                    removeHighlights(job);
                 }
             });
 
+            // Hide/show entire sections based on visible jobs
+            sections.forEach(function(section) {
+                const visibleJobs = section.querySelectorAll('.job-detail:not([style*="display: none"])');
+                section.style.display = (searchTerm && visibleJobs.length === 0) ? 'none' : '';
+            });
+
             noResults.style.display = found ? 'none' : 'block';
-        });
 
-        searchInput.addEventListener('keydown', function(event) {
-            if (event.key === "Enter" && matchingJobs.length > 0) {
-                event.preventDefault(); // Prevent form submission if any
-                matchingJobs[currentMatchIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
-                matchingJobs[currentMatchIndex].classList.add('scrolled');
-                
-                currentMatchIndex = (currentMatchIndex + 1) % matchingJobs.length;
+            // Debounced scroll to first match
+            if (scrollTimer) clearTimeout(scrollTimer);
+            if (found) {
+                scrollTimer = setTimeout(() => {
+                    const firstVisible = Array.from(jobDetails).find(job => job.style.display !== 'none');
+                    if (firstVisible) {
+                        firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        firstVisible.classList.add('scrolled');
+                    }
+                }, 400);
             }
         });
 
-        function highlightMatch(element, term) {
-            const text = element.textContent;
-            if (!term) {
-                element.innerHTML = text;
-                return;
-            }
-            const regex = new RegExp(`(${term})`, 'gi');
-            const newText = text.replace(regex, `<mark>$1</mark>`);
-            element.innerHTML = newText;
+        function highlightMatch(container, term) {
+            const nodes = container.querySelectorAll('h3, p, ul li');
+            nodes.forEach(el => {
+                const text = el.textContent;
+                if (!term) {
+                    el.innerHTML = text;
+                    return;
+                }
+                const regex = new RegExp(`(${term})`, 'gi');
+                const newText = text.replace(regex, `<mark>$1</mark>`);
+                el.innerHTML = newText;
+            });
         }
 
-        function removeHighlights(element) {
-            element.innerHTML = element.textContent;
+        function removeHighlights(container) {
+            const nodes = container.querySelectorAll('h3, p, ul li');
+            nodes.forEach(el => {
+                el.innerHTML = el.textContent;
+            });
         }
     });
 </script>
+
 {% endblock %}
