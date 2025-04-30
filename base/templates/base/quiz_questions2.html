@@ -16,38 +16,38 @@
         <div class="question">
             <p><strong>6. I like writing content like blogs, articles, or stories.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q6" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q6" value="{{ i }}" {% if data.q6 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
+          </div>
+          
+          <div class="question">
             <p><strong>7. I like building, fixing, or working with mechanical systems.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q7" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q7" value="{{ i }}" {% if data.q7 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
+          </div>
+          
+          <div class="question">
             <p><strong>8. I enjoy organizing events or managing tasks.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q8" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q8" value="{{ i }}" {% if data.q8 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
+          </div>
+          
+          <div class="question">
             <p><strong>9. I love performing or presenting in front of others.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q9" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q9" value="{{ i }}" {% if data.q9 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
+          </div>
+          
+          <div class="question">
             <p><strong>10. I enjoy conducting scientific research or analyzing data.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q10" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q10" value="{{ i }}" {% if data.q10 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
+          </div>
+          
         <div class="quiz-buttons">
             <a href="{% url 'quiz_page_1' %}" class="btn job-desc-btn">← Back</a>
             <button type="submit" class="btn job-desc-btn">Next →</button>

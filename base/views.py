@@ -26,10 +26,15 @@ def quiz(request):
     dark_mode = request.session.get('dark_mode', False)
     return render(request, 'base/quiz.html', {'dark_mode': dark_mode})  
 
-def quiz_questions(request):
-    
-    questions = []  
-    return render(request, 'base/quiz_questions.html', {'questions': questions})
+def start_quiz(request):
+    # Clear previous quiz answers
+    for i in range(1, 26):
+        request.session.pop(f'quiz_q{i}', None)
+    return redirect('quiz_page_1')  
+
+# def quiz_questions(request):
+#     questions = []  
+#     return render(request, 'base/quiz_questions.html', {'questions': questions})
 
 def about(request):
     dark_mode = request.session.get('dark_mode', False)
@@ -98,61 +103,40 @@ def profile_settings(request):
 
     return render(request, 'base/profile-settings.html', {'form': form})
 
-def quiz_page_1(request):
+def quiz_page(request, page_num):
+    page_num = int(page_num)
+
+    page_ranges = {
+        1: range(1, 6),
+        2: range(6, 11),
+        3: range(11, 16),
+        4: range(16, 21),
+        5: range(21, 26),
+    }
+
+    if page_num not in page_ranges:
+        return redirect('quiz_page_1')
+
+    required = [f'q{i}' for i in page_ranges[page_num]]
+    template_name = f'base/quiz_questions{"" if page_num == 1 else page_num}.html'
+
     if request.method == "POST":
-        required = ['q1', 'q2', 'q3', 'q4', 'q5']
-        if any(not request.POST.get(q) for q in required):
+        data = request.POST.dict()
+        if any(not data.get(q) for q in required):
             messages.error(request, "Please answer all the questions before continuing.")
-            return render(request, 'base/quiz_questions.html')
-        for q in required:
-            request.session[f'quiz_{q}'] = request.POST.get(q)
-        return redirect('quiz_page_2')
-    return render(request, 'base/quiz_questions.html')
+            return render(request, template_name, {"data": data})
 
-def quiz_page_2(request):
-    if request.method == "POST":
-        required = ['q6', 'q7', 'q8', 'q9', 'q10']
-        if any(not request.POST.get(q) for q in required):
-            messages.error(request, "Please answer all the questions before continuing.")
-            return render(request, 'base/quiz_questions2.html')
         for q in required:
-            request.session[f'quiz_{q}'] = request.POST.get(q)
-        return redirect('quiz_page_3')
-    return render(request, 'base/quiz_questions2.html')
+            request.session[f'quiz_{q}'] = data[q]
 
-def quiz_page_3(request):
-    if request.method == "POST":
-        required = ['q11', 'q12', 'q13', 'q14', 'q15']
-        if any(not request.POST.get(q) for q in required):
-            messages.error(request, "Please answer all the questions before continuing.")
-            return render(request, 'base/quiz_questions3.html')
-        for q in required:
-            request.session[f'quiz_{q}'] = request.POST.get(q)
-        return redirect('quiz_page_4')
-    return render(request, 'base/quiz_questions3.html')
+        if page_num == 5:
+            return redirect('quiz_results')
+        else:
+            return redirect(f'quiz_page_{page_num + 1}')
 
-def quiz_page_4(request):
-    if request.method == "POST":
-        required = ['q16', 'q17', 'q18', 'q19', 'q20']
-        if any(not request.POST.get(q) for q in required):
-            messages.error(request, "Please answer all the questions before continuing.")
-            return render(request, 'base/quiz_questions4.html')
-        for q in required:
-            request.session[f'quiz_{q}'] = request.POST.get(q)
-        return redirect('quiz_page_5')
-    return render(request, 'base/quiz_questions4.html')
 
-def quiz_page_5(request):
-    if request.method == "POST":
-        required = ['q21', 'q22', 'q23', 'q24', 'q25']
-        if any(not request.POST.get(q) for q in required):
-            messages.error(request, "Please answer all the questions before submitting.")
-            return render(request, 'base/quiz_questions5.html')
-        for q in required:
-            request.session[f'quiz_{q}'] = request.POST.get(q)
-        return redirect('quiz_results')
-    return render(request, 'base/quiz_questions5.html')
-
+    initial = {f"q{i}": request.session.get(f"quiz_q{i}", "") for i in page_ranges[page_num]}
+    return render(request, template_name, {"data": initial})
 
 def description(request):
     return render(request, 'base/description.html')

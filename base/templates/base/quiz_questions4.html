@@ -16,37 +16,37 @@
         <div class="question">
             <p><strong>16. I solve problems using creativity and out-of-the-box thinking.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q16" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q16" value="{{ i }}" {% if data.q16 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
-            <p><strong>17.  I enjoy entertaining or storytelling to inspire others.</strong></p>
+          </div>
+          
+          <div class="question">
+            <p><strong>17. I enjoy entertaining or storytelling to inspire others.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q17" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q17" value="{{ i }}" {% if data.q17 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
-            <p><strong>18.  I feel confident leading projects or managing people.</strong></p>
+          </div>
+          
+          <div class="question">
+            <p><strong>18. I feel confident leading projects or managing people.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q18" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q18" value="{{ i }}" {% if data.q18 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
-            <p><strong>19.  I’m interested in how modern tech can solve real-world problems.</strong></p>
+          </div>
+          
+          <div class="question">
+            <p><strong>19. I’m interested in how modern tech can solve real-world problems.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q19" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q19" value="{{ i }}" {% if data.q19 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
-
-        <div class="question">
-            <p><strong>20.  I would enjoy working in film, music, or performance.</strong></p>
+          </div>
+          
+          <div class="question">
+            <p><strong>20. I would enjoy working in film, music, or performance.</strong></p>
             {% for i in "12345" %}
-            <label><input type="radio" name="q20" value="{{ i }}"> {{ i }}</label>
+              <label><input type="radio" name="q20" value="{{ i }}" {% if data.q20 == i %}checked{% endif %}> {{ i }}</label>
             {% endfor %}
-        </div>
+          </div>
 
         <div class="quiz-buttons">
             <a href="{% url 'quiz_page_3' %}" class="btn job-desc-btn">← Back</a>
