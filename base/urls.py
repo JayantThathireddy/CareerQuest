@@ -14,7 +14,6 @@ urlpatterns = [
     path('profile-settings/', views.profile_settings, name='profile-settings'),
     path('quiz/', views.quiz, name='quiz'),  # Quiz intro page
     path('quiz/start/', views.start_quiz, name='quiz_start'),
-    # path('quiz/questions/', views.quiz_questions, name='quiz_questions'),  # Quiz-taking page
     path('description/', views.description, name='description'),
     path('quiz/submit/', views.quiz_submit, name='quiz_submit'),
     path('quiz/1/', views.quiz_page, {'page_num': 1}, name='quiz_page_1'),

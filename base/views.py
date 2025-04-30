@@ -267,7 +267,6 @@ def quiz_results(request):
     })
 
 @login_required
-@login_required
 def save_results(request):
     if request.method == 'POST':
         existing_result = QuizResult.objects.filter(user=request.user).first()
